@@ -1,4 +1,4 @@
-/**
+    /**
  *   A Program for Parsing HTML Course Notes
  */
 package webwriter;
@@ -9,7 +9,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 /**
- *
  * @author Anton Rasmussen
  */
 public abstract class WebWriter extends Writer {

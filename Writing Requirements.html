@@ -1,0 +1,913 @@
+<?xml version="1.0" encoding="UTF-8"?><html><head><meta charset="UTF-8"/><link href="../../styles/md-scroll.css" media="screen, projection, print" rel="stylesheet" type="text/css"/><link href="../../styles/md-scroll-ext.css" media="screen, projection, print" rel="stylesheet" type="text/css"/><meta content="width=device-width, initial-scale=1" name="viewport"/><link href="https://www.cs.odu.edu/~zeil/styles/highlight.js/styles/googlecode.css" rel="stylesheet"/><script src="https://www.cs.odu.edu/~zeil/styles/highlight.js/highlight.pack.js"> </script><script>hljs.initHighlightingOnLoad();</script><script src="../../styles/md-scroll.js" type="text/javascript"> </script><script type="text/javascript">
+             window.MathJax = {
+               tex2jax: {
+               inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+               processEscapes: true
+             }
+           };
+           </script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"> </script><title>Writing Requirements</title></head><body><script>sshowControl0 = { counter: 1,
+             showNumber: 0, max: 1};
+             window.onhashchange = hashHasChanged;</script><div class="navHeader" id="slideshowControlA0"><table class="navHeader"><tr class="slideshowcontrol"><td class="slideshowcontrolLeft"/><td class="slideshowcontrolMiddle">
+<a class="imgLink" href="../../Directory/outline/index.html" title="Course home/outline"><img src="../../graphics/home.png"/></a>
+<a href="mailto:tkennedy@cs.odu.edu?subject=CS350%2C%20Writing%20Requirements"><img src="../../graphics/email.png" title="Email to instructor"/></a><span style="margin: 0 32px;"/>
+<a class="imgLink" href="reqts__slides.html"><img src="../../graphics/slides.png" title="Slides for lectures"/></a></td><td class="slideshowcontrolRight"/></tr></table></div><div class="mainBody"><div class="titleblock"><h1 class="title">Writing Requirements</h1><h2 class="author">Steven J Zeil:</h2><div class="date">Last modified: Sep 14, 2017</div></div><div class="toc">Contents:<div class="toc-h1"><a href="#a-classical-approach-to-requirements">1 A “Classical” Approach to Requirements</a></div><div class="toc-h2"><a href="#the-primary-requirements-documents">1.1 The Primary Requirements Documents</a></div><div class="toc-h1"><a href="#requirements-definition">2 Requirements Definition</a></div><div class="toc-h2"><a href="#writing-requirements-definitions">2.1 Writing requirements definitions</a></div><div class="toc-h2"><a href="#example-rsdimu-">2.2 Example (RSDIMU)</a></div><div class="toc-h2"><a href="#example-spreadsheet-">2.3 Example (Spreadsheet)</a></div><div class="toc-h1"><a href="#requirements-specification">3 Requirements Specification</a></div><div class="toc-h2"><a href="#characteristics-of-a-good-srs">3.1 Characteristics of a good SRS</a></div><div class="toc-h1"><a href="#documenting-individual-requirements">4 Documenting Individual Requirements</a></div><div class="toc-h2"><a href="#structured-english">4.1 Structured English</a></div><div class="toc-h2"><a href="#pre-and-post-conditions">4.2 Pre and Post Conditions</a></div><div class="toc-h2"><a href="#functional-and-non-functional-requirements-">4.3 Functional and Non-Functional Requirements.</a></div><div class="toc-h2"><a href="#functional-requirements">4.4 Functional Requirements</a></div><div class="toc-h2"><a href="#non-functional-requirements">4.5 Non-functional requirements</a></div><div class="toc-h1"><a href="#the-ieee-standard-srs-outline">5 The IEEE standard SRS outline</a></div><div class="toc-h2"><a href="#the-supporting-text">5.1 The Supporting Text</a></div><div class="toc-h2"><a href="#the-actual-requirements">5.2 The Actual Requirements</a></div><div class="toc-h2"><a href="#example-spreadsheet">5.3 Example: Spreadsheet</a></div><div class="toc-h1"><a href="#a-minority-view-formal-requirements">6 A Minority View - Formal Requirements</a></div><div class="toc-h2"><a href="#example-of-formal-specification">6.1 Example of Formal Specification</a></div></div><p><strong>Abstract</strong></p>
+    <p>Requirements documents are written in many different forms. We will look the components common to many of these, with particular attention to the distinction between <span class="firstterm">functional requirements</span> and <span class="firstterm">nonfunctional requirements</span>.</p>
+    <p>We will look, in detail, at a standard format for <span class="firstterm">Software Requirements Specification</span> (SRS) documents from the IEEE, and we will look more briefly at some alternatives.</p>
+    <a id="aclassicalapproachtorequirements"/><h1 id="a-classical-approach-to-requirements">1 A “Classical” Approach to Requirements</h1><p><strong>Problems of requirements analysis</strong></p>
+    <ul>
+  <li>Stakeholders don’t know what they really want</li>
+  <li>Stakeholders express requirements in their own terms (conflicting with developers’ familiar terminology)</li>
+  <li>Different stakeholders may have conflicting requirements</li>
+  <li>Organizational and political factors may influence the system requirements</li>
+  <li>The requirements may change during the analysis process.</li>
+  <li>New stakeholders may emerge</li>
+</ul><a id="theprimaryrequirementsdocuments"/><h2 id="the-primary-requirements-documents">1.1 The Primary Requirements Documents</h2><p>Waterfall processes often distinguished between</p>
+    <ul>
+  <li>
+  <p><span class="firstterm">Requirements definitions</span>: Customer-oriented descriptions  of the system’s functions and constraints on its operation</p>
+    </li>
+  <li>
+  <p><span class="firstterm">Requirements specifications</span>: Precise and detailed  descriptions of the system’s functionality and constraints.</p>
+    </li>
+</ul><a id="requirementsdefinition"/><h1 id="requirements-definition">2 Requirements Definition</h1><ul>
+  <li>Should specify external behaviour of the system</li>
+  <li>Includes functional and non-functional requirements
+    <ul>
+      <li>
+        <p><span class="firstterm">Functional</span> requirements are statements of the services  that the system should provide</p>
+    
+        <ul>
+          <li>Basically, what outputs should be produced for a given class  of inputs</li>
+        </ul>
+      </li>
+      <li>
+        <p><span class="firstterm">Non-functional requirements</span> are constraints on the  services and functions offered by the system </p>
+    
+        <ul>
+          <li>Anything that isn’t “what outputs should be produced for a given class  of inputs”</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul><a id="writingrequirementsdefinitions"/><h2 id="writing-requirements-definitions">2.1 Writing requirements definitions</h2><ul>
+  <li>Commonly in natural language, supplemented by diagrams and tables
+    <p>Can lead to problems with</p>
+    
+    <ul>
+      <li>Lack of clarity.</li>
+      <li>Requirements confusion (mixing functional and non-functional reqts)</li>
+      <li>Requirements amalgamation: mixing requirments together</li>
+    </ul>
+  </li>
+</ul><a id="examplersdimu"/><h2 id="example-rsdimu-">2.2 Example (RSDIMU)</h2><p>Some years ago, I worked on a series of research projects that made use of a Requirements Definition written by a NASA contractor, Charles Rivers Analytics. An updated copy of that document can be found <a href="../../Protected/references/rsdimuReqtsDefinition.pdf">here</a>.</p>
+    <p>It describes a Redundant Strapped-Down Inertial Measurement Unit, a device that forms part of an aircraft’s navigation system. It uses a bank of accelerometers (sensors that can measure acceleration along a straight line) to determine, at any moment in time, how much and in what direction the aircraft is accelerating.</p>
+    <p>Integrated over time, the acceleration can yield the history of velocity changes by the aircraft. Integrated again, one can estimate how far and in what direction the aircraft has traveled.</p>
+    <p><div class="noFloat"> </div>
+    <img src="rsdimu-pyramid.png" style="float: right; max-width: 40%;"/></p>
+    <p>Physically, the RSDIMU consists of a square-based pyramid with the triangular faces being equilateral triangles (a semi-octahedron).</p>
+    <hr/><p><div class="noFloat"> </div>
+    <img src="rsdimu-sensors.png" style="float: right; max-width: 35%;"/></p>
+    <p>On each triangular face are mounted two sensors, at right angles to each other.</p>
+    <p>That gives a total of 8 sensors, all at varying angles to one another. That’s more than enough to determine the acceleration of the aircraft in 3 dimensions.</p>
+    <p>This redundancy (the “R” in RSDIMU) is important because:</p>
+    <ul>
+  <li>
+    <p>Over time, some sensors may fail,</p>
+    
+    <ul>
+      <li>Redundancy means the system continues to function even after  multiple failures.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Like all physical measurement devices, the sensors are noisy –  there are random errors in any real measurement process.</p>
+    
+    <ul>
+      <li>Redundancy allows us to “average” together the readings to get a  more accurate estimate.</li>
+    </ul>
+  </li>
+</ul><hr/><p>From the RSDIMU Requirements Definition:</p>
+    <blockquote>
+  <p>An RSDIMU consists of a skewed array of redundant inertial sensors and exemplifies the current trend for designing hardware fault tolerant inertial measurement units (IMU’s) for high reliability applications. The portion of the RSDIMU you will handle contains eight linear accelerometers mounted on the four triangular faces of a semioctahedron.</p>
+    
+  <p>Your procedure will have two functions, both of which are a consequence of the redundancy in the sensor complement of the RSDIMU. The first function is to perform a consistency check to detect and isolate failed sensors. The second is to use the sensors found to be good by the first check to provide estimates of the vehicle’s linear acceleration expressed as components along the north, east, and down axes of a navigational frame of reference.</p>
+    
+  <p><code>&#x22ee;</code></p>
+    
+  <p>an RSDIMU as described here would operate as follows. With the vehicle stationary, as series of sensor readings would be taken over time, and this would comprise the calibration data set for that particular flight. During flight, the sensors would be read periodically at regular time intervals to provide input for the navigation software.</p>
+    
+</blockquote><hr/><p><strong>Critique</strong></p>
+    <p>The preceding requirements mix up functional and non-functional requirements and are incomplete.</p>
+    <ul>
+  <li>Easy to criticise but hard to write good requirements definitions
+    <ul>
+      <li>Use of a standard format with pre-defined fields to be  filled means that information is less likely to be omitted</li>
+    </ul>
+  </li>
+</ul><a id="examplespreadsheet"/><h2 id="example-spreadsheet-">2.3 Example (Spreadsheet)</h2><p>A simpler <a class="doc" href="../../Public/spreadsheetRD/index.html">requirements definition</a>.</p>
+    <p>Read through this.</p>
+    <ul>
+  <li>Is it enough for you to understand what the project is?
+    <ul>
+      <li>Could you see people using this as a basis for deciding whether  or not to move forward with a project?</li>
+    </ul>
+  </li>
+  <li>Can you see any gaps and possible ambiguities that would need to be  tightened up before developers understood exactly what they were  supposed to produce?</li>
+</ul><a id="requirementsspecification"/><h1 id="requirements-specification">3 Requirements Specification</h1><p>The SRS (Software Requirements Specifications) adds detail to the requirements definition.</p>
+    <ul>
+  <li>It should be consistent with the RD.</li>
+  <li>Often presented with system models which are developed  during the requirements analysis.</li>
+  <li>Usually written in natural language but this can be  problematical</li>
+</ul><a id="characteristicsofagoodsrs"/><h2 id="characteristics-of-a-good-srs">3.1 Characteristics of a good SRS</h2><p>An SRS should be</p>
+    <ol>
+  <li>Correct;</li>
+  <li>Unambiguous;</li>
+  <li>Complete;</li>
+  <li>Consistent;</li>
+  <li>Ranked for importance and/or stability;</li>
+  <li>Verifiable (see below)</li>
+  <li>Modifiable;</li>
+  <li>Traceable (see below)</li>
+</ol><p>Most of these are self-explanatory.</p>
+    <h3 id="verifiability">3.1.1 Verifiability</h3><p>Requirements should be written so that they can be <strong>objectively</strong> verified</p>
+    <ul>
+  <li>Requires precision in terminology
+    <ul>
+      <li>
+        <p>This is not good:</p>
+    
+        <blockquote>
+          <p>The system should be easy to use by experienced controllers and should be organized in such a way that user errors are minimized.</p>
+    
+        </blockquote>
+      </li>
+      <li>
+        <p>The error rate should be been quantified</p>
+    
+        <blockquote>
+          <p>Experienced controllers should be able to use all the system functions after a total of two hours training. After this training, the average number of errors made by experienced users should not exceed two per day.</p>
+    
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+</ul><hr/><p><strong>Making the Subjective Objective</strong></p>
+    <p>Some possible objective measures of properties that we often consider to be subjective:</p>
+    <table>
+  <thead>
+    <tr>
+      <th>Property </th>
+      <th>Measure </th>
+    </tr>
+    <tr>
+      <th>(subjective) </th>
+      <th>(objective) </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Speed </td>
+      <td>processed transactions / sec.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Response time</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>screen refresh time</td>
+    </tr>
+    <tr>
+      <td>Size </td>
+      <td>k bytes</td>
+    </tr>
+    <tr>
+      <td>Ease of use </td>
+      <td>training time</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>number of help frames</td>
+    </tr>
+    <tr>
+      <td>Reliability </td>
+      <td>mean time to failure</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>probability of unavailability</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>failure rate</td>
+    </tr>
+    <tr>
+      <td>Robustness </td>
+      <td>time to restart after failure</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>probability of data corruption after failure</td>
+    </tr>
+    <tr>
+      <td>Portability </td>
+      <td>% of target dependent statements</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>number of target systems</td>
+    </tr>
+  </tbody>
+</table><a id="requirementstraceability"/><h3 id="requirements-traceability">3.1.2 Requirements traceability</h3><p>Requirements traceability means that related requirements are linked in some way and that requirements are (perhaps) linked to their source</p>
+    <ul>
+  <li>Traceability is a property of a requirements  specification which reflects the ease of finding related  requirements.</li>
+  <li>Some CASE tools provide traceability support facilities. For  example, they may be able to find all requirements which use  the same terms.</li>
+  <li>Test specifications may attempt to trace tests back to reqts,
+    <ul>
+      <li>thereby demonstrating that each reqt has been tested.</li>
+    </ul>
+  </li>
+</ul><hr/><p><strong>Improving Traceability</strong></p>
+    <ul>
+  <li>Assign a unique number to all requirements</li>
+  <li>Keep individual requirements small. Break up
+    <blockquote>
+      <p>"23: The system shall do A and B.</p>
+    
+    </blockquote>
+    <p>into</p>
+    
+    <blockquote>
+      <p>"23: The system shall do A.</p>
+    
+      <p>"24: The system shall do B.</p>
+    
+    </blockquote>
+    <p>so that we can talk about requirements being satisfied or failed on an individual basis. </p>
+    
+  </li>
+  <li>
+  <p>Cross-reference related requirements using this unique number</p>
+    </li>
+  <li>
+  <p>Produce a cross-reference matrix for each requirements document showing related requirements. </p>
+    </li>
+</ul><a id="documentingindividualrequirements"/><h1 id="documenting-individual-requirements">4 Documenting Individual Requirements</h1><p>There are many different styles for writing requirements.</p>
+    <p>The choice often depends on</p>
+    <ul>
+  <li>
+  <p>Local culture – what the developers are familiar with.</p>
+    </li>
+  <li>
+    <p>Overall organization</p>
+    
+    <ul>
+      <li>Different schemes for organizing the overall SRS lend themselves  to different approaches for writing the specific requirements.</li>
+    </ul>
+  </li>
+</ul><a id="structuredenglish"/><h2 id="structured-english">4.1 Structured English</h2><p>Perhaps most common is the use of a mixture of natural language, mathematics, and diagrams, in a detailed numbered list:</p>
+    <blockquote>
+  <p><strong>3. Physical structure:</strong></p>
+    
+  <p>The RSDIMU is composed of an instrument and a display. The display is discussed in Section 6.3. This section is devoted to the structure of the instrument package.</p>
+    
+  <p><strong>3.1</strong> The instrument package is a semi-octahedron (a square-based pyramid) (Figure 1).</p>
+    
+  <p><strong>3.1.1</strong> It has four non-base faces, named <code>A</code>, <code>B</code>, <code>C</code>, or <code>D</code>.</p>
+    
+  <p><strong>3.1.2</strong> Each face contains two sensors, named the <code>x</code> and <code>y</code> sensors.</p>
+    
+  <p><strong>3.1.2.1</strong> Associated with each sensor is a set of misalignment  angles. These are specified further in Section 2.3.2.</p>
+    
+  <p><em>Rationale:</em> There is an ideal position for each sensor, but the  physical mounting may differ slightly.</p>
+    
+  <p><strong>3.1.2.2</strong> The misalignment angles are assumed to be small enough (less than 5 degrees) for the sine of the angle to be approximately equal to the value of the angle expressed in radians.</p>
+    
+  <p><strong>3.1.3</strong> The temperature of the face, <code>temp</code>, determines the temperatures of the sensors mounted on the face.</p>
+    
+  <p><em>Rationale:</em> Sensor output varies with temperature (see section 4.6).</p>
+    
+</blockquote><ul>
+  <li>
+  <p>Each numbered item is a separate functional requirement.</p>
+    </li>
+  <li>
+    <p>These are often described as <em>“The system shall…”</em> statements.</p>
+    
+    <ul>
+      <li>
+      <p>As you can see, however, they often (and maybe preferably) refer  to previously introduced subsystems.</p>
+    </li>
+    </ul>
+  </li>
+  <li>
+  <p>Works well when organizing by feature.</p>
+    </li>
+</ul><a id="preandpostconditions"/><h2 id="pre-and-post-conditions">4.2 Pre and Post Conditions</h2><p>A <span class="firstterm">pre-condition</span> is what must be true before a function can be  performed.</p>
+    <ul>
+  <li>Invoking a function despite its pre-condition being false is  considered to be illegal and to have unpredictable results.</li>
+  <li>Functions are not required to check their pre-conditions — the  pre-condition is an obligation on the caller, not on the  function being called.
+    <ul>
+      <li>Nonetheless, many programmers will add code to check  pre-conditions (if they can be checked without slowing the  function down) as a form of  <a href="https://www.cs.odu.edu/~zeil/cs333/latest/Public/defensive/index.html">defensive programming</a>.</li>
+    </ul>
+  </li>
+</ul><p>A <span class="firstterm">post-condition</span> describes what the function will accomplish as a  boolean expression that will be true upon completion.</p>
+    <ul>
+  <li>This represents the actual statement of what we want the function to <em>do</em>.</li>
+</ul><p>Both pre-conditions and post-conditions must be boolean statements. </p>
+    <p>There is a long tradition of documenting both functions (design and implementation) and functionality (requirements) with pre-conditions and post-conditions:</p>
+    <hr/><blockquote class="example" id="example1"><div class="exampleTitle">Example 1: Example: RSDIMU</div>
+<blockquote>
+  <p>RSDIMU/Calibration/4.1</p>
+    
+  <p><em>Function</em>: Check for Noise</p>
+    
+  <p><em>Description</em>: The variance in a number of readings taken from one sensor while the vehicle was at rest are compared to a threshold value. Sensors whose variance exceeds the threshold are marked as failed due to excessive noise.</p>
+    
+  <p><em>Inputs</em>: Face, Sensor, raw sensor data collected on ground, noise threshold</p>
+    
+  <p><em>Source</em>: raw sensor data <code>offraw</code> from external measurement procedure</p>
+    
+  <p><em>Outputs</em>: Sensor failure <code>linFail</code> &amp; noise indicators <code>linNoise</code></p>
+    
+  <p><em>Destination</em>: Edge consistency check and acceleration estimation functions</p>
+    
+  <p><em>Requires</em>: Instrument</p>
+    
+  <p><em>Pre-condition</em>: Sensor is not already marked as failed</p>
+    
+  <p><em>Post-condition</em>: <code>linFail[Face,Sensor]</code> and <code>linNoise[Face,Sensor*]</code> will be set to true if <code>std-dev(offraw) &gt; 3 * linstd</code>.</p>
+    
+  <p><em>Side effects</em>: Changes to sensor status affect face status as well.</p>
+    
+</blockquote>
+<ul>
+  <li>
+  <p>The “Description” here is informal documentation.</p>
+    </li>
+  <li>
+    <p>The “real” specification is in  the pre- and post- conditions and the side-effects.</p>
+    
+    <ul>
+      <li>
+      <p>The term <span class="firstterm">side effect</span> comes from programming where it  refers to any effect of a function that cannot be observed by  inspection of the return value and output parameters (e.g.,  changes to global variables).</p>
+    </li>
+    </ul>
+  </li>
+  <li>
+  <p>Although this looks very low-level, the apparent variables and arrays like  <code>linFail</code> and <code>linNoise</code> are actually defined elsewhere as signals  that appear as rows of green/red lights on an indicator panel.</p>
+    </li>
+</ul>
+</blockquote><hr/><p>Because pre- and post-conditions are booleans, they are often expressed in mathematical or even programming language notation.</p>
+    <blockquote class="example" id="example2"><div class="exampleTitle">Example 2: Pre- and Post-Conditions in API Documentation</div>
+<div class="details"><span class="summary"><a href="catalog.h" target="listing">catalog.h</a></span> <input id="but_details_d6e835" onclick="toggleDisplay('_details_d6e835')" type="button" value="+"/><div class="detailPart" id="_details_d6e835"><pre><code id="_details_d6e835_code">/*
+ * catalog.h
+ *
+ *  Created on: Apr 10, 2017
+ *      Author: zeil
+ */
+
+#ifndef CATALOG_H_
+#define CATALOG_H_
+
+#include &lt;string&gt;
+#include &lt;iostream&gt;
+
+#include "book.h"
+
+/**
+ * A list of books, identified by Gutenberg ID.
+ */
+class Catalog {
+public:
+	/**
+	 * Create a new empty catalog, capable of holding up to
+	 * maxCapacity books.
+	 *
+	 * @param maxCapacity maximum number of books this catalog
+	 *    can hold.
+	 */
+	Catalog (int maxCapacity = 100);
+
+	/**
+	 * How many books currently in this catalog?
+	 *
+	 * @return number of books in the catalog.
+	 */
+	int size() const;
+
+	/**
+	 * How many books can this catalog hold?
+	 *
+	 * @return max capacity of this catalog.
+	 */
+	int capacity() const;
+
+	/**
+	 * Attempt to alter the capacity of this catalog so that
+	 * it can hold at least newCapcity books.  Existing books
+	 * in the catalog are retained.
+	 *
+	 * @param newCapacity maximum number of books we would like to be able
+	 *    to store in this catalog.
+	 * @post capacity() &gt;= newCapacity
+	 */
+	void reserve (int newCapacity);
+
+	/**
+	 * Add a book to the catalog. If a book with the same ID exists, it is
+	 * replaced by b.
+	 *
+	 * @pre size() &lt; capacity() || contains(b.getID())
+	 * @post contains(b.getID()) &amp;&amp; b == get(b.getID())
+	 */
+	void add (Book b);
+
+
+	/**
+	 * Check to see if a book is contained in the catalog.
+	 *
+	 * @param bookID the ID string of a potential book
+	 * @returns true iff a book with that ID is in the catalog.
+	 */
+	bool contains(std::string bookID) const;
+
+	/**
+	 * Return the book associated with a given ID.
+	 *
+	 * @param bookID the ID string of a potential book
+	 * @returns The book with that ID in the catalog, or
+	 *      Book() if the ID is unknown.
+	 */
+	Book get(std::string bookID) const;
+
+	/**
+	 * Return a book based upon ID ordering.
+	 *
+	 * @param i index of a desired book.
+	 * @return the requested book, or Book() if i is illegal.
+	 *
+	 * @pre 0 &lt;= i &amp;&amp; i &lt; size()
+	 * @post if i0 &lt;= i1, get(i0).getID() &lt;= get(i1).getID()
+	 */
+	Book get(int i) const;
+
+private:
+  &#x22ee;
+};
+
+
+
+#endif /* CATALOG_H_ */
+</code></pre></div></div>
+
+<ul>
+  <li>The conditions here are documents in the <code>@pre</code> and <code>@post</code> clauses.</li>
+</ul>
+</blockquote><ul>
+  <li>Not surprisingly, this style probably works best if Section 3 is  organized by function(ality).</li>
+</ul><a id="functionalandnonfunctionalrequirements"/><h2 id="functional-and-non-functional-requirements-">4.3 Functional and Non-Functional Requirements.</h2><p>Requirements are generally divided into <span class="firstterm">functional</span> and <span class="firstterm">non-functional</span>.</p>
+    <a id="functionalrequirements"/><h2 id="functional-requirements">4.4 Functional Requirements</h2><p>Functional requirements are the ones that say “if the input is … the output will be …”.</p>
+    <p>These can include statements about:</p>
+    <ol>
+  <li>Validity checks on the inputs</li>
+  <li>Exact sequence of operations</li>
+  <li>Responses to abnormal situations, including
+    <ul>
+      <li>Overflow</li>
+      <li>Communication facilities</li>
+      <li>Error handling and recovery</li>
+    </ul>
+  </li>
+  <li>Effect of parameters</li>
+  <li>Relationship of outputs to inputs, including
+    <ul>
+      <li>Input/output sequences</li>
+      <li>Formulas for input to output conversion</li>
+    </ul>
+  </li>
+</ol><a id="nonfunctionalrequirements"/><h2 id="non-functional-requirements">4.5 Non-functional requirements</h2><p>Any requirement that isn’t functional, including</p>
+    <ul>
+  <li>Performance requirements
+    <ul>
+      <li>Should be stated in measurable terms.</li>
+      <li>e.g., “95% of the transactions shall be processed in less than 1 sec.”
+        <p>rather than,</p>
+    
+        <p>“An operator shall not have to wait for the transaction to complete.”</p>
+    
+      </li>
+    </ul>
+  </li>
+  <li>Database reqts
+    <ul>
+      <li>data entities, integrity constraints, data retention</li>
+    </ul>
+  </li>
+  <li>Standards compliance</li>
+  <li>Software attributes
+    <ul>
+      <li>Reliability</li>
+      <li>Security</li>
+      <li>maintainability</li>
+      <li>portability</li>
+    </ul>
+  </li>
+</ul><hr/><p><strong>Non-functional requirements examples</strong></p>
+    <ul>
+  <li>
+    <p>Product requirement</p>
+    
+    <blockquote>
+      <p><strong>4.C.8</strong> It shall be possible for all necessary communication between the APSE and the user to be expressed in the standard Ada character set.</p>
+    
+    </blockquote>
+    <ul>
+      <li>This could be argued to be functional, because it describes  input, but because this is given as an over-arching requirements  (“all necessary communication”) and references a standard, it  can also be regarded as non-functional.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Organizational requirement</p>
+    
+    <blockquote>
+      <p><strong>9.3.2</strong> The system development process and deliverable documents shall conform to the process and deliverables defined in XYZCo-SP-STAN-95.</p>
+    
+    </blockquote>
+  </li>
+  <li>
+    <p>External requirement</p>
+    
+    <blockquote>
+      <p><strong>7.6.5</strong> The system shall provide facilities that allow any user to check if personal data is maintained on the system. A procedure must be defined and supported in the software that will allow users to inspect personal data and to correct any errors in that data.</p>
+    
+    </blockquote>
+  </li>
+</ul><a id="requirementsseparation"/><h3 id="requirements-separation">4.5.1 Requirements separation</h3><ul>
+  <li>Functional and non-functional requirements should, in  principle, be distinguished in a requirements specification</li>
+  <li>However, this can be difficult as requirements may be expressed  as whole system requirements rather than constraints on  individual functions</li>
+  <li>It is sometimes difficult to decide if a requirement is  functional or a non-functional
+    <ul>
+      <li>E.g., requirements for safety are concerned with  non-functional properties but may require functions to be added  to the system</li>
+    </ul>
+  </li>
+</ul><a id="theieeestandardsrsoutline"/><h1 id="the-ieee-standard-srs-outline">5 The IEEE standard SRS outline</h1><p>There are many ways to organize a requirements document, but this has been an industry standard for a long time.</p>
+    <pre><code>Table of Contents
+1. Introduction
+   1.1 Purpose
+   1.2 Scope
+   1.3 Definitions, acronyms, and abbreviations
+   1.4 References
+   1.5 Overview
+2. Overall description
+   2.1 Product perspective
+   2.2 Product functions
+   2.3 User characteristics
+   2.4 Constraints
+   2.5 Assumptions and dependencies
+3. Specific requirements
+     &#x22ee;
+Appendixes
+Index
+</code></pre><p>(Source: <a href="http://proxy.lib.odu.edu/login?url=http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=720574">IEEE Std 830-1998</a>, Recommended Practice for Software Requirements Specifications, sect 5)</p>
+    <a id="thesupportingtext"/><h2 id="the-supporting-text">5.1 The Supporting Text</h2><p>Much of this outline describes descriptive text that will “surround” the real requirements. </p>
+    <hr/><p><strong>1. Introduction</strong></p>
+    <ul>
+  <li>Purpose: indicate purpose and intended audience</li>
+  <li>Scope: identifies software products to be developed, benefits, objectives
+    <ul>
+      <li>Identify the software products to be produced</li>
+      <li>Explain what they will (and will not) do</li>
+      <li>Describe the application area, including benefits and objectives</li>
+    </ul>
+  </li>
+  <li>Definitions, acronyms, and abbreviations;</li>
+  <li>References;</li>
+  <li>Overview.
+    <ul>
+      <li>Describe organization of the remainder of the SRS</li>
+    </ul>
+  </li>
+</ul><hr/><p><strong>2. Overall Description</strong></p>
+    <ul>
+  <li>
+  <p>Describe the general background affecting the product and its  requirements.</p>
+    </li>
+  <li>
+    <p>Product perspective</p>
+    
+    <ul>
+      <li>related products and systems</li>
+      <li>diagram of major components</li>
+      <li>architectural constraints (e.g., required interfaces)</li>
+    </ul>
+  </li>
+  <li>Product functions (functionality)
+    <ul>
+      <li>major functions to be performed</li>
+    </ul>
+  </li>
+  <li>User characteristics;</li>
+  <li>Constraints;
+    <ul>
+      <li>regulatory, hardware, required interfaces, audit functions,  reliability, safety, security</li>
+    </ul>
+  </li>
+  <li>Assumptions and dependencies;</li>
+  <li>Apportioning of requirements
+    <ul>
+      <li>What can be deferred to future versions?</li>
+    </ul>
+  </li>
+</ul><hr/><p><strong>4. Appendices</strong></p>
+    <p>Skipping forward for just a moment,…</p>
+    <ul>
+  <li>Sample I/O formats</li>
+  <li>GUI screens(?)</li>
+  <li>Additional background info</li>
+</ul><a id="theactualrequirements"/><h2 id="the-actual-requirements">5.2 The Actual Requirements</h2><p><strong>3. Specific Requirements</strong></p>
+    <p>The is the real heart of the IEEE SRS — this is where we actually put the <em>requirements</em>.</p>
+    <ul>
+  <li>Everything else is supporting text. It exists only to make section  3 of the SRS easier to read and understand.</li>
+</ul><blockquote>
+  <p>"This section of the SRS should contain all of the software requirements to a level of detail sufficient to enable designers to design a system to satisfy those requirements, and testers to test that the system satisfies those requirements.</p>
+    
+</blockquote><a id="choicesoforganization"/><h3 id="choices-of-organization">5.2.1 Choices of Organization</h3><p>Section 3 can be organized in different ways ( <a href="http://proxy.lib.odu.edu/login?url=http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=720574">IEEE Std 830-1998</a>,  sect 5.3.7 )</p>
+    <ul>
+  <li>by operating mode</li>
+  <li>by user class</li>
+  <li>by object/class</li>
+  <li>by feature</li>
+  <li>by stimulus</li>
+  <li>by function hierarchy</li>
+</ul><p>Choose an organization that divides the requirements up into natural, easily understood groups.</p>
+    <ul>
+  <li>Don’t choose to organize by user class, for example, if you have  only identified a single class or role for all users of the system.</li>
+</ul><hr/><p>However it is organized, it must eventually describe</p>
+    <ul>
+  <li>every input into the system,</li>
+  <li>every output from the system,</li>
+  <li>all functions performed by the system</li>
+</ul><hr/><p>All of these organizations observe strict separation of functional and non-functional requirements.</p>
+    <ul>
+  <li>In fact, the major difference among these organization is how the  functional requirements are arranged and grouped.</li>
+  <li>The non-functional requirements appear in separate sections after  the functional ones, and those sections are pretty similar across  all the organizations.</li>
+</ul><a id="organizingbymode"/><h3 id="organizing-by-mode">5.2.2 Organizing by Mode</h3><p>Some systems have distinct <em>modes of operation</em> that server to strictly limit what functions can be performed at any one time.</p>
+    <ul>
+  <li>Example: The RSDIMU has two distinct modes: a calibration mode when  the plane is on the ground, and a navigation mode when the plane is  in the air.</li>
+</ul><p>Here is the organization of section 3:</p>
+    <pre><code>3. Specific Requirements
+<span class='hli'>3.1 External Interface Requirements
+   3.1.1 User Interfaces
+   3.1.2 Hardware Interfaces
+   3.1.3 Software Interfaces
+   3.1.4 Communications Interfaces</span>
+<span class='hlii'>3.2 Functional Requirements
+   3.2.1 Mode 1
+      3.2.1.1 Functional reqt 1.1
+      3.2.1.2 Functional reqt 1.2
+        &#x22ee;
+   3.2.2 Mode 2
+      3.2.2.1 Functional reqt 2.1
+      3.2.2.2 Functional reqt 2.2
+        &#x22ee;
+   &#x22ee; </span>
+<span class='hliii'>3.3 Performance reqts
+3.4 Design constraints
+3.5 Software system attributes
+3.5 Other Reqts</span>
+</code></pre><ul>
+  <li>
+    <p><span class="hli">This</span> is supporting text. Refer to the IEEE standard for  details.</p>
+    
+    <ul>
+      <li>
+      <p>An alternate form ot the organization by mode allows separate  supporting text for each distinct mode.</p>
+    </li>
+    </ul>
+  </li>
+  <li>
+  <p><span class="hlii">This</span> is where the functional reqts are stated. This is the  <em>core</em> of the SRS.</p>
+    </li>
+  <li>
+  <p><span class="hliii">This</span> is where the non-functional reqts are placed.</p>
+    </li>
+</ul><a id="organizingbyuserclass"/><h3 id="organizing-by-user-class">5.2.3 Organizing by User Class</h3><p>Some systems have multiple user classes or roles, with very different functionality seen by each role.</p>
+    <p>This organization is similar to the previous one, replacing modes by user roles</p>
+    <pre><code>3. Specific Requirements
+3.1 External Interface Requirements
+   3.1.1 User Interfaces
+   3.1.2 Hardware Interfaces
+   3.1.3 Software Interfaces
+   3.1.4 Communications Interfaces
+<span class='hlii'>3.2 Functional Requirements
+   3.2.1 User class 1
+      3.2.1.1 Functional reqt 1.1
+      3.2.1.2 Functional reqt 1.2
+        &#x22ee;
+   3.2.2 User class 2
+      3.2.2.1 Functional reqt 2.1
+      3.2.2.2 Functional reqt 2.2
+        &#x22ee;
+   &#x22ee; </span>
+3.3 Performance reqts
+3.4 Design constraints
+3.5 Software system attributes
+3.5 Other Reqts
+</code></pre><ul>
+  <li>Both the supporting text and non-functinal reqts areas are  unchanged.</li>
+</ul><a id="organizingbystimulus"/><h3 id="organizing-by-stimulus">5.2.4 Organizing by Stimulus</h3><p>This organization is used when the most distinctive characterstic of the system is the different kinds of stimuli – external events or inputs – to which the system must respond.</p>
+    <pre><code>3. Specific Requirements
+3.1 External Interface Requirements
+   3.1.1 User Interfaces
+   3.1.2 Hardware Interfaces
+   3.1.3 Software Interfaces
+   3.1.4 Communications Interfaces
+<span class='hlii'>3.2 Functional Requirements
+   3.2.1 Stimulus 1
+      3.2.1.1 Functional reqt 1.1
+      3.2.1.2 Functional reqt 1.2
+        &#x22ee;
+   3.2.2 Stimulus 2
+      3.2.2.1 Functional reqt 2.1
+      3.2.2.2 Functional reqt 2.2
+        &#x22ee;
+   &#x22ee; </span>
+3.3 Performance reqts
+3.4 Design constraints
+3.5 Software system attributes
+3.5 Other Reqts
+</code></pre><ul>
+  <li>Both the supporting text and non-functinal reqts areas are  unchanged.</li>
+</ul><a id="organizingbyobject"/><h3 id="organizing-by-object">5.2.5 Organizing by Object</h3><p>If you have performed a full object-oriented analysis and formulated domain and analysis models as a collection of interacting objects, you can use your analysis model as the basis for organizing and stating your reqts.</p>
+    <pre><code>3. Specific Requirements
+3.1 External Interface Requirements
+   3.1.1 User Interfaces
+   3.1.2 Hardware Interfaces
+   3.1.3 Software Interfaces
+   3.1.4 Communications Interfaces
+<span class='hlii'>3.2 Specific Requirements
+   3.2.1 Class/Object 1
+      3.2.1.1 Attributes
+          3.2.1.1.1 Attribute 1.1
+           &#x22ee;
+      3.2.1.2 Functions
+         3.2.1.2.1 Functional reqt 1.1
+         3.2.1.2.1 Functional reqt 1.2
+          &#x22ee;
+   3.2.2 Class/Object 2
+      3.2.2.1 Attributes
+          3.2.2.1.1 Attribute 2.1
+           &#x22ee;
+      3.2.2.2 Functions
+         3.2.2.2.1 Functional reqt 2.1
+         3.2.2.2.1 Functional reqt 2.2
+          &#x22ee;
+   &#x22ee; </span>
+3.3 Performance reqts
+3.4 Design constraints
+3.5 Software system attributes
+3.5 Other Reqts
+</code></pre><ul>
+  <li>
+  <p>Both the supporting text and non-functinal reqts areas are  unchanged.</p>
+    </li>
+  <li>
+    <p>The division of section 3.2 is very different from what came before,  but makes sense from an OOA point of view.</p>
+    
+    <ul>
+      <li>Notice that attributes are listed separately, but we don’t list  functions but instead jump straight into requirements.</li>
+      <li>That’s probably because many functional requirements will  express a relationship between multiple functions,
+        <ul>
+          <li>e.g., “The <code>top()</code> function of the stack returns the value  most recently supplied to a <code>push(...)</code>”.</li>
+          <li>Such statements cannot be cleanly divided into separate  lists per function.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>I would expect any SRS using this organization to include lots of  UML, amounting to the entire analysis model being embedded in the  SRS.</p>
+    
+    <ul>
+      <li>
+      <p>And presumably, the doman model appeared in the earlier  requirements Definition.</p>
+    </li>
+    </ul>
+  </li>
+</ul><hr/><ul>
+  <li>Remember that this is requirements, not design.
+    <ul>
+      <li>
+      <p>If we organize by object/class, we are talking about classes  discovered and documented in the <em>domain model</em> or <em>analysis  model</em>.</p>
+    </li>
+    </ul>
+    <p>(You would not choose this organization if you had not started with OOA.)</p>
+    
+    <p>They are <em>not</em> necessarily classes that will appear in the design  or implementation.</p>
+    
+    <ul>
+      <li>Though, if you are a firm believer in the OO philosophy, you  suspect that there in a high probability of them surviving in a  closely related form.</li>
+    </ul>
+  </li>
+</ul><a id="organizingbyfeature"/><h3 id="organizing-by-feature">5.2.6 Organizing by Feature</h3><p>Features can be any readily observable behavior or functionality.</p>
+    <pre><code>3. Specific Requirements
+3.1 External Interface Requirements
+   3.1.1 User Interfaces
+   3.1.2 Hardware Interfaces
+   3.1.3 Software Interfaces
+   3.1.4 Communications Interfaces
+3.2 System features
+   3.2.1 System feature 1
+      <span class='hli'>3.2.1.1 Introduction/Purpose of feature
+      3.2.1.2 Stimulus/Response sequence<span class='hli'>
+      <span class='hlii'>3.2.1.3 Associated functional requirements
+         3.2.1.3.1 Functional reqt 1.1
+         3.2.1.3.1 Functional reqt 1.2
+          &#x22ee; </span>
+   &#x22ee; 
+3.3 Performance reqts
+3.4 Design constraints
+3.5 Software system attributes
+3.5 Other Reqts
+</code></pre><ul>
+  <li>
+  <p>This has <span class="hli">supporting text</span> for describing each feature, but the  core content is still the <span class="hlii">functional reqts</span>.</p>
+    </li>
+  <li>
+  <p>The reference to “Stimulus/Response” means that we want to document  the inputs/events that trigger the use of this feature, and  summarize the effects/outputs of the feature.</p>
+    </li>
+</ul><a id="organizingbyfunctionalhierarchy"/><h3 id="organizing-by-functional-hierarchy">5.2.7 Organizing by Functional Hierarchy</h3><p>This organization supports a form of <em>data-flow analysis</em> that was wide-spread in the pre-OOA days.</p>
+    <a id="examplespreadsheet"/><h2 id="example-spreadsheet">5.3 Example: Spreadsheet</h2><p><a class="doc" href="../../Public/spreadsheetSRS/index.html">Here</a> is a complete SRS in the IEEE 830 style.</p>
+    <ul>
+  <li>
+  <p>Organized by feature</p>
+    </li>
+  <li>
+    <p>Pick a feature out of section 3 (e.g., “Assignments”).</p>
+    
+    <ul>
+      <li>
+        <p>How does this stack up against our desired quality attributes:</p>
+    
+        <ol>
+          <li>Correct;</li>
+          <li>Unambiguous;</li>
+          <li>Complete;</li>
+          <li>Consistent;</li>
+          <li>Ranked for importance and/or stability;</li>
+          <li>Verifiable</li>
+          <li>Modifiable;</li>
+          <li>Traceable</li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+</ul><a id="aminorityviewformalrequirements"/><h1 id="a-minority-view-formal-requirements">6 A Minority View - Formal Requirements</h1><p>There is always a dedicated group of advocates who maintain that the use of natural language in requirements specifications is a fundamental flaw.</p>
+    <ul>
+  <li>
+  <p>They argue for any of several techniques of <span class="firstterm">formal specification</span>.</p>
+    </li>
+  <li>
+  <p>The influence of formal specification languages on conventional  practice lies in the concepts of <em>preconditions</em> and  <em>postconditions</em>.</p>
+    </li>
+</ul><a id="exampleofformalspecification"/><h2 id="example-of-formal-specification">6.1 Example of Formal Specification</h2><p>A <a href="rsdimu_formal_spec.pdf">formal specification of the RSDIMU</a></p>
+    <ul>
+  <li>written in <em>Zed</em>, a formal specification languages that uses  <span class="firstterm">schemas</span> to express constraints on named data states.</li>
+</ul><p><div class="noFloat"> </div>
+    <img src="zedPattern.png" style="float: right; max-width: 33%;"/></p>
+    <ul>
+  <li>A schema
+    <ul>
+      <li>names a data state,</li>
+      <li>lists component data that makes up that state, and then</li>
+      <li>lists constraints (boolean conditions) limiting those components</li>
+    </ul>
+  </li>
+</ul><hr/><p><div class="noFloat"> </div>
+    <img src="zedSpec.png" style="float: right; max-width: 60%;"/></p>
+    <p>Some schemas from the RSDIMU specification:</p>
+    <ul>
+  <li>
+    <p>The first schema says that a “Point” can be described as</p>
+    
+    <ul>
+      <li>a 3-dimensional vector (defined earlier) and by</li>
+      <li>three components, each a real number (<code>R</code>)named “x”, “y”, and  “z”, and by</li>
+      <li>a frame of reference (which expresses where the origin of the  coordinate system is and how the axes are oriented).</li>
+    </ul>
+  </li>
+  <li>
+  <p>It also says that the three real numbers and the vector  are closely related – essentially the real components are just a  shorthand for the corresponding components of the vector.</p>
+    </li>
+  <li>
+    <p>The second schema says that a “Direction”</p>
+    
+    <ul>
+      <li>has all the components and constraints of a Point, and</li>
+      <li>has an additional constraint that the size of the vector is 1.0</li>
+    </ul>
+  </li>
+</ul></div><script>sshowControl0 = { counter: 1,
+             showNumber: 0, max: 1};
+             window.onhashchange = hashHasChanged;</script><div class="navFooter" id="slideshowControl0"><table class="navFooter"><tr class="slideshowcontrol"><td class="slideshowcontrolLeft"/><td class="slideshowcontrolMiddle">
+<a class="imgLink" href="../../Directory/outline/index.html" title="Course home/outline"><img src="../../graphics/home.png"/></a>
+<a href="mailto:tkennedy@cs.odu.edu?subject=CS350%2C%20Writing%20Requirements"><img src="../../graphics/email.png" title="Email to instructor"/></a><span style="margin: 0 32px;"/>
+<a class="imgLink" href="reqts__slides.html"><img src="../../graphics/slides.png" title="Slides for lectures"/></a></td><td class="slideshowcontrolRight"/></tr></table></div><div class="copyright">© 2015-2018, Old Dominion Univ.</div></body></html>

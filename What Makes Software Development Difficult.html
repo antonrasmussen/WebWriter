@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="UTF-8"?><html><head><meta charset="UTF-8"/><link href="../../styles/md-scroll.css" media="screen, projection, print" rel="stylesheet" type="text/css"/><link href="../../styles/md-scroll-ext.css" media="screen, projection, print" rel="stylesheet" type="text/css"/><meta content="width=device-width, initial-scale=1" name="viewport"/><link href="https://www.cs.odu.edu/~zeil/styles/highlight.js/styles/googlecode.css" rel="stylesheet"/><script src="https://www.cs.odu.edu/~zeil/styles/highlight.js/highlight.pack.js"> </script><script>hljs.initHighlightingOnLoad();</script><script src="../../styles/md-scroll.js" type="text/javascript"> </script><script type="text/javascript">
+             window.MathJax = {
+               tex2jax: {
+               inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+               processEscapes: true
+             }
+           };
+           </script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"> </script><title>What Makes Software Development Difficult?</title></head><body><script>sshowControl0 = { counter: 1,
+             showNumber: 0, max: 1};
+             window.onhashchange = hashHasChanged;</script><div class="navHeader" id="slideshowControlA0"><table class="navHeader"><tr class="slideshowcontrol"><td class="slideshowcontrolLeft"/><td class="slideshowcontrolMiddle">
+<a class="imgLink" href="../../Directory/outline/index.html" title="Course home/outline"><img src="../../graphics/home.png"/></a>
+<a href="mailto:tkennedy@cs.odu.edu?subject=CS350%2C%20What%20Makes%20Software%20Development%20Difficult%3F"><img src="../../graphics/email.png" title="Email to instructor"/></a><span style="margin: 0 32px;"/>
+<a class="imgLink" href="introduction__slides.html"><img src="../../graphics/slides.png" title="Slides for lectures"/></a></td><td class="slideshowcontrolRight"/></tr></table></div><div class="mainBody"><div class="titleblock"><h1 class="title">What Makes Software Development Difficult?</h1><h2 class="author">Steven J Zeil</h2><div class="date">Last modified: Sep 14, 2017</div></div><p><strong>Abstract</strong></p>
+    <p>Earlier, you were asked to discuss, in the Forum, what kinds of factors significantly complicate software development projects.</p>
+    <p>Not surprisingly, that’s a question of much interest to developers and their managers. There have been quite a few studies devoted to that subject.</p>
+    <p>One place where identifying complicating factors comes into play is in trying to estimate the cost of a project before it can begin.</p>
+    <ul>
+  <li>A number of different <span class="firstterm">cost models</span> have been proposed.</li>
+  <li>We’ll look at one of them to get a sense of the community consensus  on what the factors might be.</li>
+</ul><a id="lessonsfromacostmodel"/><h1 id="lessons-from-a-cost-model">1 Lessons from a Cost Model</h1><p>One of the best known software development cost models is</p>
+    <ul>
+  <li>COCOMO (COnstructive COst MOdel) by B. Boehm, 1981</li>
+</ul><p>The Intermediate Cocomo formula estimates effort ($E$) in person-months:</p>
+    <p>\[ E = a_{i} (\mbox{KLoC})^{b_i} \cdot \mbox{EAF} \]</p>
+    <ul>
+  <li>
+    <p>KLoC stands for “<strong>K</strong>ilo (thousands) of <strong>L</strong>ines <strong>o</strong>f <strong>C</strong>ode”,  and represents an estimate of how large a propsoed project is going  to be.</p>
+    
+    <ul>
+      <li>Coming up with that estimate is a separate and non-trivial task</li>
+      <li>The rest of the effort formula is an attempt to figure out how  hard it will be to develop that many lines of code.</li>
+    </ul>
+  </li>
+  <li>
+    <p>The constants $a_{i}$ and $b_{i}$ describe the characteristics of the development team.</p>
+    
+    <ul>
+      <li>These are obtained by fitting the model to the costs  observed in past projects developed by the same team.</li>
+    </ul>
+  </li>
+</ul><h2 id="example">1.1 Example</h2><p>Suppose that in previous projects of various sizes, our company’s performance had fitted to $a=3.0$, $b=1.12$.</p>
+    <p>If we are looking at doing a 10 KLOC project that is very similar to past projects, the estimated effort would be</p>
+    <p>\[ E = a_i (\mbox{KLoC})^{b_i} \cdot \mbox{EAF} \]</p>
+    <p>\[ \; = 3.0 \cdot 10^{1.12} \cdot 1.0 \]</p>
+    <p>\[ \; = 40 \mbox{person-months} \]</p>
+    <p>(The EAF will be 1.0 if this project is very similar to past ones.)</p>
+    <p>If we are looking at doing a 20 KLOC project that is very similar to past projects, the estimated effort would be</p>
+    <p>\[ E = a_i (\mbox{KLoC})^{b_i} \cdot \mbox{EAF} \]</p>
+    <p>\[ \; = 3.0 \cdot 20^{1.12} \cdot 1.0 \]</p>
+    <p>\[ \; = 86 \mbox{person-months} \]</p>
+    <h2 id="eaf">1.2 EAF</h2><p>The most interesting part of the COCOMO formula is the <code>EAF</code>, a multiplier computed from a checklist of project attributes.</p>
+    <ul>
+  <li>Each attribute describes some characteristic that affects how hard  it is to develop software.</li>
+  <li>The team managers assign each attribute an estimated rating ranging  from “Very Low” to “Extra High”
+    <ul>
+      <li>This yields a multiplier value for that characteristic,
+        <ul>
+          <li>1.0 is “average”</li>
+          <li>values &gt; 1.0 mean that more effort is required</li>
+          <li>values &lt; 1.0 mean that less effort is required</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul><a id="costfactors"/><h3 id="cost-factors">1.2.1 Cost factors</h3><table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th colspan="6">Ratings </th>
+    </tr>
+    <tr>
+      <th>Cost Drivers </th>
+      <th>Very Low </th>
+      <th>Low </th>
+      <th>Nominal </th>
+      <th>High </th>
+      <th>Very High </th>
+      <th>Extra High </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Product attributes</strong> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Required software reliability </td>
+      <td>0.75 </td>
+      <td>0.88 </td>
+      <td>1.00 </td>
+      <td>1.15 </td>
+      <td>1.40 </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Size of application database </td>
+      <td> </td>
+      <td>0.94 </td>
+      <td>1.00 </td>
+      <td>1.08 </td>
+      <td>1.16 </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Complexity of the product </td>
+      <td>0.70 </td>
+      <td>0.85 </td>
+      <td>1.00 </td>
+      <td>1.15 </td>
+      <td>1.30 </td>
+      <td>1.65</td>
+    </tr>
+    <tr>
+      <td><strong>Hardware attributes</strong> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Run-time performance constraints </td>
+      <td> </td>
+      <td> </td>
+      <td>1.00 </td>
+      <td>1.11 </td>
+      <td>1.30 </td>
+      <td>1.66</td>
+    </tr>
+    <tr>
+      <td>Memory constraints </td>
+      <td> </td>
+      <td> </td>
+      <td>1.00 </td>
+      <td>1.06 </td>
+      <td>1.21 </td>
+      <td>1.56</td>
+    </tr>
+    <tr>
+      <td>Volatility of the target environment </td>
+      <td> </td>
+      <td>0.87 </td>
+      <td>1.00 </td>
+      <td>1.15 </td>
+      <td>1.30 </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Required turnabout time </td>
+      <td> </td>
+      <td>0.87 </td>
+      <td>1.00 </td>
+      <td>1.07 </td>
+      <td>1.15 </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Personnel attributes</strong> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Analyst capability </td>
+      <td>1.46 </td>
+      <td>1.19 </td>
+      <td>1.00 </td>
+      <td>0.86 </td>
+      <td>0.71 </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Applications experience </td>
+      <td>1.29 </td>
+      <td>1.13 </td>
+      <td>1.00 </td>
+      <td>0.91 </td>
+      <td>0.82 </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Software engineer capability </td>
+      <td>1.42 </td>
+      <td>1.17 </td>
+      <td>1.00 </td>
+      <td>0.86 </td>
+      <td>0.70 </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Target environment experience </td>
+      <td>1.21 </td>
+      <td>1.10 </td>
+      <td>1.00 </td>
+      <td>0.90 </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Programming language experience </td>
+      <td>1.14 </td>
+      <td>1.07 </td>
+      <td>1.00 </td>
+      <td>0.95 </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Project attributes</strong> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Application of software engineering methods </td>
+      <td>1.24 </td>
+      <td>1.10 </td>
+      <td>1.00 </td>
+      <td>0.91 </td>
+      <td>0.82 </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Use of software tools </td>
+      <td>1.24 </td>
+      <td>1.10 </td>
+      <td>1.00 </td>
+      <td>0.91 </td>
+      <td>0.83 </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Required development schedule </td>
+      <td>1.23 </td>
+      <td>1.08 </td>
+      <td>1.00 </td>
+      <td>1.04 </td>
+      <td>1.10 </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table><h2 id="example">1.3 Example</h2><p>Suppose that in previous projects of various sizes, our company’s performance had fitted to $a=3.0$, $b=1.12$.</p>
+    <p>If we are looking at doing a 10 KLOC project that is very similar to past projects, the estimated effort would be</p>
+    <p>\[ E = a_i (\mbox{KLoC})^{b_i} \cdot \mbox{EAF} \]</p>
+    <p>\[ \; = 3.0 \cdot 10^{1.12} \cdot 1.0 \]</p>
+    <p>\[ \; = 40 \, \mbox{person-months} \]</p>
+    <hr/><p>But suppose that we have decided to write this project in a programming language that is new to our team, and for which our preferred debugging tools are unavailable.</p>
+    <p>The EAF table says</p>
+    <table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th colspan="6">Ratings </th>
+    </tr>
+    <tr>
+      <th>Cost Drivers </th>
+      <th>Very Low </th>
+      <th>Low </th>
+      <th>Nominal </th>
+      <th>High </th>
+      <th>Very High </th>
+      <th>Extra High </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Programming language experience </td>
+      <td><strong>1.14</strong> </td>
+      <td>1.07 </td>
+      <td>1.00 </td>
+      <td>0.95 </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Use of software tools </td>
+      <td>1.24 </td>
+      <td><strong>1.10</strong> </td>
+      <td>1.00 </td>
+      <td>0.91 </td>
+      <td>0.83 </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table><p>So we might guess that our EAF $= 1.14 * 1.10$ = 1.254, so those two factors add an additional 25% to the effort estimate:</p>
+    <p>\[ E = a_i (\mbox{KLoC})^{b_i} \cdot \mbox{EAF} \]</p>
+    <p>\[ \; = 3.0 \cdot 10^{1.12} \cdot 1.25 \]</p>
+    <p>\[ \; = 50 \, \mbox{person-months} \]</p>
+    <h2 id="trends">1.4 Trends</h2><table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th colspan="6">Ratings </th>
+    </tr>
+    <tr>
+      <th>Cost Drivers </th>
+      <th>Very Low </th>
+      <th>Low </th>
+      <th>Nominal </th>
+      <th>High </th>
+      <th>Very High </th>
+      <th>Extra High </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Product attributes</strong> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><span class="hli">Required software reliability</span> </td>
+      <td><span class="hli">0.75</span> </td>
+      <td><span class="hli">0.88</span> </td>
+      <td><span class="hli">1.00</span> </td>
+      <td><span class="hli">1.15</span> </td>
+      <td><span class="hli">1.40</span> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Size of application database </td>
+      <td> </td>
+      <td>0.94 </td>
+      <td>1.00 </td>
+      <td>1.08 </td>
+      <td>1.16 </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><span class="hli">Complexity of the product</span> </td>
+      <td><span class="hli">0.70</span> </td>
+      <td><span class="hli">0.85</span> </td>
+      <td><span class="hli">1.00</span> </td>
+      <td><span class="hli">1.15</span> </td>
+      <td><span class="hli">1.30</span> </td>
+      <td><span class="hli">1.65</span></td>
+    </tr>
+    <tr>
+      <td><strong>Hardware attributes</strong> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Run-time performance constraints </td>
+      <td> </td>
+      <td> </td>
+      <td>1.00 </td>
+      <td>1.11 </td>
+      <td>1.30 </td>
+      <td>1.66</td>
+    </tr>
+    <tr>
+      <td>Memory constraints </td>
+      <td> </td>
+      <td> </td>
+      <td>1.00 </td>
+      <td>1.06 </td>
+      <td>1.21 </td>
+      <td>1.56</td>
+    </tr>
+    <tr>
+      <td>Volatility of the target environment </td>
+      <td> </td>
+      <td>0.87 </td>
+      <td>1.00 </td>
+      <td>1.15 </td>
+      <td>1.30 </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Required turnabout time </td>
+      <td> </td>
+      <td>0.87 </td>
+      <td>1.00 </td>
+      <td>1.07 </td>
+      <td>1.15 </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Personnel attributes</strong> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Analyst capability </td>
+      <td>1.46 </td>
+      <td>1.19 </td>
+      <td>1.00 </td>
+      <td>0.86 </td>
+      <td>0.71 </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><span class="hlii">Applications experience</span> </td>
+      <td><span class="hlii">1.29</span> </td>
+      <td><span class="hlii">1.13</span> </td>
+      <td><span class="hlii">1.00</span> </td>
+      <td><span class="hlii">0.91</span> </td>
+      <td><span class="hlii">0.82</span> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Software engineer capability </td>
+      <td>1.42 </td>
+      <td>1.17 </td>
+      <td>1.00 </td>
+      <td>0.86 </td>
+      <td>0.70 </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><span class="hlii">Target environment experience</span> </td>
+      <td><span class="hlii">1.21</span> </td>
+      <td><span class="hlii">1.10</span> </td>
+      <td><span class="hlii">1.00</span> </td>
+      <td><span class="hlii">0.90</span> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><span class="hlii">Programming language experience</span> </td>
+      <td><span class="hlii">1.14</span> </td>
+      <td><span class="hlii">1.07</span> </td>
+      <td><span class="hlii">1.00</span> </td>
+      <td><span class="hlii">0.95</span> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Project attributes</strong> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Application of software engineering methods </td>
+      <td>1.24 </td>
+      <td>1.10 </td>
+      <td>1.00 </td>
+      <td>0.91 </td>
+      <td>0.82 </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Use of software tools </td>
+      <td>1.24 </td>
+      <td>1.10 </td>
+      <td>1.00 </td>
+      <td>0.91 </td>
+      <td>0.83 </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><span class="hliii">Required development schedule</span> </td>
+      <td><span class="hliii">1.23</span> </td>
+      <td><span class="hliii">1.08</span> </td>
+      <td><span class="hliii">1.00</span> </td>
+      <td><span class="hliii">1.04</span> </td>
+      <td><span class="hliii">1.10</span> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table><ul>
+  <li>
+    <p>Some of the trends are obvious.</p>
+    
+    <ul>
+      <li>As <span class="hli">required reliability</span> and <span class="hli">product complexity</span>  increase, so does the effort required</li>
+      <li>As the team’s level of experience with the  <span class="hlii">application area</span>, the <span class="hlii">target environment</span>, and  the <span class="hlii">programming language</span> increase, the expected effort  goes down.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Some of the trends are not monotonic.</p>
+    
+    <ul>
+      <li>As the <span class="hliii">required development schedule</span> becomes more rigorous, the  effort initially decreases (concrete deadlines may motivate  performance) and then increases (stress and the need for  compromises to meet deadlines).</li>
+    </ul>
+  </li>
+</ul><a id="thingstothinkabout"/><h1 id="things-to-think-about">2 Things to think about</h1><p>How do the cost factors from the COCOMO table match up against your and your classmates’ answers in the opening discussion?</p>
+    <hr/><p>Consider a project with the following characteristics:</p>
+    <ul>
+  <li>Large development teams with
+    <ul>
+      <li>high turnover</li>
+      <li>vastly different levels of experience / ability</li>
+    </ul>
+  </li>
+  <li>Minimal opportunity for face-to-face communication</li>
+</ul><p>What do you think the EAC would be for this project?</p>
+    <div class="details"><span class="summary">Can you think of a situation where these project characteristics are common?</span> <input id="but_details_d6e1458" onclick="toggleDisplay('_details_d6e1458')" type="button" value="+"/><div class="detailsBody" id="_details_d6e1458" style="display: none;">
+<p>Consider a typical open source project on SourceForge or similar sites. They can be staffed largely by volunteers, working remotely. The developers may not even live and work in the same timezone, so face-to-face meetings are unlikely and most communication will be asynchronous (e.g., e-mail).</p>
+    
+<p>The participants may range from seasoned veterans to near-novices.</p>
+    
+<p>By conventional thinking, it’s a wonder that such projects ever succeed!</p>
+    
+</div></div></div><script>sshowControl0 = { counter: 1,
+             showNumber: 0, max: 1};
+             window.onhashchange = hashHasChanged;</script><div class="navFooter" id="slideshowControl0"><table class="navFooter"><tr class="slideshowcontrol"><td class="slideshowcontrolLeft"/><td class="slideshowcontrolMiddle">
+<a class="imgLink" href="../../Directory/outline/index.html" title="Course home/outline"><img src="../../graphics/home.png"/></a>
+<a href="mailto:tkennedy@cs.odu.edu?subject=CS350%2C%20What%20Makes%20Software%20Development%20Difficult%3F"><img src="../../graphics/email.png" title="Email to instructor"/></a><span style="margin: 0 32px;"/>
+<a class="imgLink" href="introduction__slides.html"><img src="../../graphics/slides.png" title="Slides for lectures"/></a></td><td class="slideshowcontrolRight"/></tr></table></div><div class="copyright">© 2015-2018, Old Dominion Univ.</div></body></html>

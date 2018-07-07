@@ -1,0 +1,617 @@
+========Page [BEGIN]: Software Development Process Models.html===========
+Software Development Process Models
+Abstract 
+Each development organization has its own working process that it evolves for how it gets software development done. In this lesson, we look at the constituent steps that make up typical instances of these processes, and will survey some of the more common arrangments of those steps into a software development process model: 
+Abstract 
+Each development organization has its own working process that it evolves for how it gets software development done. 
+Although that might sound chaotic, in practice there is pretty broad consensus on what the constituent steps are that make up the entire process. So it becomes a matter of arranging those steps, of tweaking the details, and especially of settling on the relative emphasis and level of detail in these steps. 
+The arrangements that companies arrive at are seldom entirely innovative. Instead, they fall into a few standard patterns, which we will survey in this lesson. 
+A software development process model (SDPM), a.k.a., a software life-cycle model, is the process by which an organization develops software. 
+Although there are many models (in theory, one per development team), there is pretty broad agreement on what needs to go on during this process: 
+Different SDPMs will divide these activities among phases in different ways. 
+Let’s talk about a few of these in more detail. 
+Examine existing system. 
+Propose a new system 
+“System” here is used in its generic sense: a collection of people, organizations, machines, and procedures for getting things done. There’s almost always an existing system, even if it is totally un-automated. 
+If you are a follower of Object-Oriented (OO) approaches, you have a deep conviction that studying and, ultimately, simulating an existing system is a fundamental principle of software development. OO developers never ask the question “Is it possible to build a system that does X?”. That’s because the existing system serves as an existence proof — they’re already doing X, so we start by understanding and then simulating what they are doing now. 
+We’ll look at requirements in more detail in a later section. 
+“Design” means deriving 
+a solution which satisfies the software requirements. 
+Commonly recognized subproblems include 
+architectural design, 
+Examples of architectural design decisions would be 
+high-level design, 
+low-level design 
+A possible breakdown of design activities 
+You are probably pretty familiar already with procedures for doing high-level and low-level design. Architectural design, on the other hand, is something that is seldom worth worrying about in the scale of projects addressed within an academic semester. 
+ 
+ 
+The breakdown shown in this picture is probably more elaborate than you would have attempted, though the component ideas should, considered separately, be clear enough. 
+The diagram here suggests a fairly document-heavy process typical of Waterfall, our first process model. 
+Maintenance is another practice that seldom arises in academic projects. Normally, when you do an assignment for a course, you’re completely done with at the end of the semester. Keeping it working, adding new functionality, etc., is not a concern. 
+But you’ve certainly seen how operating systems, application programs, games, and many other software products are subject to an ongoing process of bug fixes, enhancements, and new releases. 
+Maintenence can have a number of forms: 
+fixing problems 
+ 
+ 
+The best known process model 
+Defining characteristic: movement from phase to phase is always forward (downhill), irreversible 
+The waterfall model gets its name from the fact that the first diagrams of this process illustrated it as a series of terraces over which a stream flowed, cascading down from one level to another. The point of this portrayal was that water always flows downhill — it can’t reverse itself. Similarly, the defining characteristic of the waterfall model is the irreversible forward progress from phase to phase. 
+Waterfall is often criticized as inflexible, in large part because of that irreversible forward motion. Many organizations, in practice, will do a kind of “waterfall with appeals”, allowing developers to revisit and revise decisions and documents from earlier phases after jumping through a number of deliberately restrictive hoops. 
+Most of the activities in Waterfall are familiar, with the possible exception of requirements analysis, which we will be looking at in more detail in a later lesson. 
+For now, I want to look at Verification and Validation (V&V). 
+Verification & Validation: assuring that a software system meets the users’ needs. 
+The principle objectives are: 
+Verification: 
+Validation: 
+Verification is essentially looking for mistakes in our most recent bit of work by comparing what we have now to the most recent “official” document defining our system. 
+Validation is a return to first principles, comparing what we have now to what we (or our customers) originally wanted. 
+You might think that, in a process divided into steps, if we do each step “correctly”, then the entire sequence must be “correct”. In practice, though, the accumulation of small errors can lead to massive alterations over time. (That’s not just a matter for programmers.) 
+Most V&V activities mix verification and validation together to different degrees. 
+Testing 
+Industry figures of 1-3 faults per 100 statements are quite common. 
+Is testing verification or validation? A great deal depends on how we decide whether the test output is correct. If we do this by viewing the data ourselves and looking for things that jump out to our eyes as “wrong”, then we are doing mainly validation. On the other hand, if part of our design process was to set up a set of tests with files of their expected outputs, and we are simply comparing the actual output files to the expected output files, then we are doing more verification. 
+usually conducted by the programmer. 
+ 
+ 
+Although the waterfall model shows V&V as a separate phase near the end, we know that some forms of V&V occur much earlier. 
+So this phase of the waterfall model really describes system and acceptance testing. 
+A Still-broader View 
+Even the “V&V V” does not capture the full context of V&V: 
+ 
+ 
+As a counter-reaction to what many believe to be an overly rigid waterfall model, there are a variety of incremental approaches that emphasize quick cycles of development, usually with earlier and more user-oriented validation. 
+There is a greater emphasis on producing intermediate versions, each adding a small amount of additional functionality. Some of these are releases, either external (released outside the team) or internal (seen only by the team), which may have been planned earlier. 
+What’s the difference between iterative and incremental? 
+“Iterative” means that we can re-visit decisions, design, and code produced in earlier iterative steps. 
+“Incremental” means that each iteration produces just a small unit of additional functional behavior. We don’t try to build major subsystems of the project in a single pass. 
+This often requires a more “vertical” view in which we implement a bit of high level control code and pieces of related low-level code. 
+As opposed to the “horizontal” approach of working “bottom up” and implementing the low-level ADTS, then the code that calls, upon them, then …, ending with the top-level interface ot the whole program. 
+Or the “horizontal” approach of working “top down” and implementing the most abstract code (the GUI or command-line interfaces), then functions that they call, then the … ending with the lowest-level ADTS that don’t call on anything else. 
+Iterative versus Incremental Models 
+Iterative – we do some set of process steps repeatedly. 
+To use a programming analogy, this is iterative: 
+Incremental – we accumulate value in small steps. 
+To use a programming analogy, this is incremental: 
+Incremental development is almost always iterative, but you can be iterative without being incremental. 
+Variations 
+Some projects employ throw-away prototyping, versions whose code is only used to demonstrate and evaluate possibilities. 
+Evolutionary prototyping keeps the prototypes, gradually evolving them into the final deliverable 
+Some waterfall projects may employ incremental schemes for parts of large systems (e.g., the user interface). 
+Poor process visibility (e.g., are we on schedule?), 
+Continual small drifts from the main architecture leading to poorly structured systems. 
+Dead-ends (the local optimization problem) 
+ 
+ 
+1986, Boehm 
+An iterative approach with a focus on risk management 
+Each iteration builds on the earlier ones 
+risk: an uncertain outcome with a potential for loss 
+Examples: 
+Spiral Phases 
+These three were already some of the biggest names in OOA&D before they decided to collaborate on a unified version of their previously distinctive approaches. 
+Their collaboration coincided with their being hired by Rational Corp., a major vendor of software development tools. Hence the “Rational” in RUP refers to the name of the company. It’s not bragging. They aren’t saying that this is a uniquely intellectual approach or that Waterfall, Spiral, et. al., are “irrational”. 
+ 
+ 
+Inception: initial concept 
+Elaboration: exploring requirements 
+Construction: building the software 
+Transition: final packaging 
+Releases 
+One task during Elaboration is to plan releases: 
+ 
+ 
+Major phases are divided into increments, each of which ends with a release. 
+A release is some kind of product that implements some part of the required functionality 
+The release plan records decisions about 
+The term “increments” gets used a lot in different models. Sometimes it refers, as it does here, to the time period during which the next release of the software is developed. In other cases it refers to the next version of the software. In other cases it refers to the software release itself. 
+ 
+ 
+Analysis: what do we need the (currently considered part of the) system to do? 
+Design: how do we get it to do that? 
+For example, deep in the implementation phase of a Waterfall project, a programmer is assigned a function to implement. 
+That programmer will 
+But we aren’t in the analysis, design, or validation phases. 
+The diagram on the right is supposed to illustrate that, although the percentage of time devoted to the activities of analysis, design, implementation, and validation, none of those activites ever entirely go away and are, once and for all, done. 
+A process model may still use some of these same terms as the name for major phases, but that’s really a different sense of the terms. For example, the “Design” phase of the Waterfall is when the language in which we “implement” is the collection of notations and diagrams that we use for system design. But we still analyze, design, implement, and validate our Design decisions. 
+ADIV 
+In the RUP, all progress is made as continual ADIV cycles 
+ 
+ 
+RUP supports development via a series of models. 
+The most important of these are 
+Domain Model 
+Analysis Model 
+Design Model 
+Models Evolved 
+RUP embraces the 
+Object-Oriented philosophy 
+Domain, analysis, and design models all focus on how classes of objects interact with one another 
+Most of the classes in the design are presumed to have already been described as part of the analysis model, 
+A modern variant of incremental development. 
+Agile development is 
+Emphasis Areas 
+Emphasis is on 
+We’ll look at Agile in more detail later in the semester, after we have learned more about these “best practices” that lie at the heart of the process. 
+========Page [END]: Software Development Process Models.html===========
+========Page [BEGIN]: What Makes Software Development Difficult.html===========
+What Makes Software Development Difficult?
+Abstract 
+Earlier, you were asked to discuss, in the Forum, what kinds of factors significantly complicate software development projects. 
+Not surprisingly, that’s a question of much interest to developers and their managers. There have been quite a few studies devoted to that subject. 
+One place where identifying complicating factors comes into play is in trying to estimate the cost of a project before it can begin. 
+One of the best known software development cost models is 
+The Intermediate Cocomo formula estimates effort ($E$) in person-months: 
+\[ E = a_{i} (\mbox{KLoC})^{b_i} \cdot \mbox{EAF} \] 
+KLoC stands for “Kilo (thousands) of Lines of Code”, and represents an estimate of how large a propsoed project is going to be. 
+The constants $a_{i}$ and $b_{i}$ describe the characteristics of the development team. 
+Suppose that in previous projects of various sizes, our company’s performance had fitted to $a=3.0$, $b=1.12$. 
+If we are looking at doing a 10 KLOC project that is very similar to past projects, the estimated effort would be 
+\[ E = a_i (\mbox{KLoC})^{b_i} \cdot \mbox{EAF} \] 
+\[ \; = 3.0 \cdot 10^{1.12} \cdot 1.0 \] 
+\[ \; = 40 \mbox{person-months} \] 
+(The EAF will be 1.0 if this project is very similar to past ones.) 
+If we are looking at doing a 20 KLOC project that is very similar to past projects, the estimated effort would be 
+\[ E = a_i (\mbox{KLoC})^{b_i} \cdot \mbox{EAF} \] 
+\[ \; = 3.0 \cdot 20^{1.12} \cdot 1.0 \] 
+\[ \; = 86 \mbox{person-months} \] 
+The most interesting part of the COCOMO formula is the EAF, a multiplier computed from a checklist of project attributes. 
+Suppose that in previous projects of various sizes, our company’s performance had fitted to $a=3.0$, $b=1.12$. 
+If we are looking at doing a 10 KLOC project that is very similar to past projects, the estimated effort would be 
+\[ E = a_i (\mbox{KLoC})^{b_i} \cdot \mbox{EAF} \] 
+\[ \; = 3.0 \cdot 10^{1.12} \cdot 1.0 \] 
+\[ \; = 40 \, \mbox{person-months} \] 
+But suppose that we have decided to write this project in a programming language that is new to our team, and for which our preferred debugging tools are unavailable. 
+The EAF table says 
+So we might guess that our EAF $= 1.14 * 1.10$ = 1.254, so those two factors add an additional 25% to the effort estimate: 
+\[ E = a_i (\mbox{KLoC})^{b_i} \cdot \mbox{EAF} \] 
+\[ \; = 3.0 \cdot 10^{1.12} \cdot 1.25 \] 
+\[ \; = 50 \, \mbox{person-months} \] 
+Some of the trends are obvious. 
+Some of the trends are not monotonic. 
+How do the cost factors from the COCOMO table match up against your and your classmates’ answers in the opening discussion? 
+Consider a project with the following characteristics: 
+What do you think the EAC would be for this project? 
+Consider a typical open source project on SourceForge or similar sites. They can be staffed largely by volunteers, working remotely. The developers may not even live and work in the same timezone, so face-to-face meetings are unlikely and most communication will be asynchronous (e.g., e-mail). 
+The participants may range from seasoned veterans to near-novices. 
+By conventional thinking, it’s a wonder that such projects ever succeed! 
+========Page [END]: What Makes Software Development Difficult.html===========
+========Page [BEGIN]: Team Organization.html===========
+Team Organization
+Abstract 
+Development teams are organized to 
+In this lesson, we look at some of these issues and at some common organizations that have been considered to deal with these. 
+Major issues in organizing a development team are 
+Communication 
+maximize communication within the team 
+establish responsive communication points with stakeholders 
+Staffing 
+does the team contain all the skill sets reuqired to complete the work? 
+Productivity 
+are we making effective use of our team members’ skills? 
+There are two key aspects here 
+Brook’s law is well-known truism of software development: 
+"Adding manpower to a late software project makes it later. – Fred Brooks, _The Mythical Man-Month, 1975 
+Why? 
+Brooks argues that 
+He suggests that partly, this is an attribute of the problem being solved. 
+Essential versus accidental complexity 
+He suggests that sometimes we add complexity by our choices of process or design, but that some problems are just plain complicated. As a consequence, he suggests that there is an 
+that we will always commit along the way, and that this is independent of the number of people we have working. 
+But he also argues that 
+More personnel implies more communications paths 
+Reducing Internal Communications Costs 
+Our options are limited 
+We can divide this into 
+Historically, the former has been emphasized 
+Over time, more and more emphasis has shifted to communications with the users. 
+Users, Customers, and Stakeholders 
+“Users” is an incredibly vague, catch-all term that serves to hide as much as it reveals. 
+Avoid it when possible. 
+Customers are the people who have the authority to accept or reject the system, to pay for it or not. 
+“Pay” is not necessarily a simple monetary transaction.(e.g., internal projects) 
+Stakeholders are the people with an interest in the structure and behavior of the system. 
+Example: 
+A company’s upper-level management approves budget to develop a system. They are the customers. 
+The output of the system is a series of reports used on a monthly basis by the company’s middle and low-level managers. They are stakeholders, because they have an interest in the content and format of those reports. 
+Much of the input of the system will be supplied by the company’s clerical staff, sales people, and technicians. They are also stakeholders, because the system will directly impact their daily jobs. 
+We look to customers for general guidelines on what will make the valuable and acceptable to them. 
+We look to stakeholders for much of the insight into how the system needs to work. 
+There are a few “obvious” ways to organize developers into a team. 
+One might be the basic democracy (or anarchy) of everyone working as peers. 
+Dangers of Hierarchical Teams 
+Distance between teams (where real work is done) and higher mgmt may hide problems. 
+I like van Vliet’s example: 
+"The following scenario is not entirely fictitious: 
+bottom: we have severe troubles in implementing module X; 
+level 1: there are some problems with module X; 
+level 2: progress is steady, I do not foresee any real problems; 
+top: everything proceeds according to our plan." 
+Level in hierarchy often equates with rank / rewards 
+Clearly this has limited benefit if an organization is so small that they have just one architect, one tester, … 
+In this model, team members with critical skills can be swapped from project to project depending on where each project is within the SDPM. For example, a good architectural designer may leave projects once they enter the high-level design phase. 
+Dangers of Matrix Organization 
+Anarchy, hierarchy, and matrix are all pretty generic forms. 
+Next we look at some specific organizations that have been attempted. 
+Mills (1970) 
+Motivated in part by studies showing vast differences in productivity between different individuals within an organization 
+Programming productivity studies have found that the “best” people in many organizations were orders of magnitude more productive than the average. (Not than the worst, but than the average.) 
+Some of this correlates with varying degrees of experience, both in general and with the specific problem domain and development environment at hand. But some of this seems to indicate that some people just are better at this than others. 
+Aims to allow the potentially most productive people to work unhindered 
+Organization of the Chief Programmer Team 
+Observations 
+SWAT == Skilled With Advanced Tools 
+A team organization for iterative process models 
+Small teams, often sharing a workspace 
+Typically, one team manager 
+Common in open-source development 
+Total team can be huge and diverse. 
+Closing Thoughts 
+If you were formed into groups, this week, to work on a project, how would you organize yourselves? 
+Does it make a difference to your answer whether this is a distance course? 
+========Page [END]: Team Organization.html===========
+========Page [BEGIN]: Eliciting Requirements.html===========
+Eliciting Requirements
+Abstract 
+Eliciting requirements is the process of determining what the customers actually need a proposed system to do and of documenting that information in a way that will allow us to write a more formal requirements document later. 
+In this lecture we survey some key concepts, problems, and actitivies associated with requirements elicitation, and then look at use cases, one of the most popular ways of documenting our understanding of those requirements. 
+Understanding the customer’s requirements for a software system 
+Developers working with customers to find out about the application domain, the services that the system should provide and the system’s operational constraints 
+May involve end-users, managers, engineers involved in maintenance, domain experts, trade unions, etc. These are called stakeholders 
+Problems of requirements analysis 
+Stakeholders don’t know what they really want 
+(Is this a real problem, or snobbery on the part of software developers? For as often as I see this “problem” listed, I’m never really sure.) 
+Stakeholders express requirements in their own terms 
+The process of eliciting requirements is, fundamentally, an exercise in communication between developers and stakeholders. 
+Common sources are 
+Reading available documentation 
+Interviewing the stakeholders… 
+Facilitated meetings 
+(i.e., gather the stakeholders around a table for a formal discussion). 
+Prototyping… 
+Direct observation (a member of the development team) 
+A member of the development team physically observes the current process in operation. 
+Interviews may focus on general questions, e.g., 
+“What do you do? ”What information do you need to do your job?“, ”What problems are you encountering with the current system?" 
+Or may seek to elicit scenarios 
+“Walk me through the process you follow when X happens.” 
+These interviews can be as much about learning how the current system works as about what is desired from the new system. 
+It can be an effective method to 
+Viewpoints are perspectives on the system, not “people who view it”. 
+Common viewpoints include 
+Data sources or sinks 
+Viewpoints responsible for producing or consuming data. 
+Representation frameworks: 
+Viewpoints representing particular types of system model. 
+Receivers of services: 
+Viewpoints external to the system that receive services from it. 
+VORD: Viewpoint-Oriented Requirements Definition 
+Example: Checkbook balancing 
+Consider the design of software to balance a checkbook: 
+should accept transactions including 
+Allow transactions to be confirmed from bank statement 
+Viewpoint Identification 
+Plausible viewpoints are: 
+Services Provided 
+Account 
+Bank 
+Account holder 
+Clearing House 
+Viewpoint Documentation 
+For each viewpoint, we document the data and services that are visible form that viewpoint. 
+Reference: Bank 
+Attributes: name, location, accounts list 
+Events: end-of-month, transaction arrival 
+Services: 
+Sub-VPs: 
+And we document the services 
+Reference: receive transaction (account debit) 
+Rationale: electronic funds transfer, may be signal from clearing house of a check received 
+Specification: The account balance is checked to determine if adequate. If so, confirmation of the transaction is sent, the account balance is reduced by the transaction amount, and the transaction noted in the account log. If not, the account kind is consulted for overdraft policy, and the policy routine found there is invoked. 
+Viewpoints: Bank, Clearing House 
+NF Reqts: Response of confirmation, rejection, or unable-to-process must be made within 30 seconds, with a mean response less than 0.1 seconds. 
+Viewpoints: Bank 
+Use cases have become popular as a means of organizing requirements. 
+A use case is a collection of scenarios. 
+Example: grading tests 
+Grading an Assessment 
+Actors: Scorer 
+Main Path 
+The scorer begins with an assessment and a collection of response documents. 
+For each item in the assessment, the scorer obtains the item’s rubric. Then for each response document, the scorer goes to the item response for that same item, grades the response using that rubric, and adds the resulting score and (if provided) feedback to the result document for that response document. 
+When all items have been graded, then the scorer computes a total score for each results document. 
+The scorer add the score from each result document to the grade book. 
+Alternative: Candidate by Candidate Scoring 
+2: For each candidate, the scorer goes through each of the items. For each item, the scorer obtains the item’s rubric, grades the item response using that rubric, adds the resulting score and (if provided) feedback to the result document for that response document. 
+Example: 
+Get Paid for Car Accident 
+Actors: Claimant, Accident victim making claim, Insurance Company, Company insuring Claimant, Agent, Insurance Company representative> processing claim 
+Main Success Scenario 
+Extensions 
+1a. Submitted data is incomplete: 
+1a1. Insurance Company requests missing information. 1a2. Claimant supplies missing information. 
+2a. Claimant does not own a valid policy: 
+2a1. Insurance Company declines claim, notifies Claimant, records all this, and terminates proceedings. 
+3a. No Agents are available at this time: 
+3a1. (What does the Insurance Company do here?) 
+4a. Accident violates basic policy guidelines: 
+4a1. Insurance Company declines claim, notifies Claimant, records all this, and terminates proceedings. 
+4b. Accident violates some minor policy guidelines : 
+4b1. Insurance Company begins negotiation with Claimant as to degree of payment to be made. 
+(Adolph) 
+Lots of local variations: 
+Title 
+Overview – natural language description 
+Actors – list of external entities participating in the use case 
+Preconditions – list of conditions that must be true before this use case can be invoked. 
+Scenario(s): specified as a main path and a collection of alternative paths 
+Postconditions – list of conditions that are expected to be true upon completion of the use case 
+Exceptions – List of failure conditions associated with the scenarios, and the appropriate system responses 
+Of these, #1 and #5 are essential and universal. 
+#4, #6, & #7 are often empty 
+Example 
+Attempt Assessment 
+Overview: A candidate attempts to take an assessment. The candidate might or might not finish the assessment within a single session. 
+Actors: candidate, proctor 
+Preconditions: 
+Main Path: 
+1: A candidate indicates to a proctor their desire to take an assessment. (This may involve simply showing up at a previously-schedule time and place when the assessment is going to be available.) 
+2: The proctor provides the candidate with a copy of the assessment and an empty response document. 
+3: The proctor authorizes the start of the assessment session. 
+4: The candidate reads the assessment, and repeatedly selects items from it. For each selected item, the candidate creates a response, adding it to the response document. 
+5: The proctor ends the assessment session after time has expired. 
+6: The candidate returns the response document to the proctor. 
+— Alternatives 
+Unavailable 
+2: The proctor determines that the candidate is not eligible to take the assessment at this time (the assessment is not available or the candidate has not fulfilled assessment requirements such as being enrolled in the course). 
+The use case terminates immediately. 
+Variant Assessments 
+2A: Proctor randomly selects one of multiple available variants of the assessment. 
+2B: The proctor gives that selected assessment and an empty response document to the candidate. 
+In-line answers 
+2: The response document and the assessment copy are a single document. 
+Candidate provided response document 
+2: The candidate brings blank sheets of paper or blue books to serve as the response document. 
+Candidate finishes early 
+5: The candidate indicates that he/she is finished prior to the end of the allotted time. The proctor ends the assessment session. 
+Suspended session 
+5: The candidate asks to suspend the session, with the intention of completing the assessment at a later date. The proctor determines from the assessment properties that this is acceptable. 
+6: The proctor collects the candidate’s response document and copy of the assessment. 
+Good use cases are 
+A poor use case 
+Register for Course 
+Problems: 
+Too much user interface detail (design) 
+Too low level. 
+Improved Version 
+Register for Course 
+We will shortly see that common requirements documents are 
+the latter being more detailed and formal. 
+Use cases fall somewhere between the two, and are often used as a mechanism for gathering the additional details needed to write the specifications. 
+The Object-Oriented philosophy can be summarized as: 
+Every program is really a simulation. 
+The quality of a program’s design is proportional to the faithfulness with which the structures and interactions in the program mirror those in the real world. 
+In pre-OO, Waterfall and similar processes, at the end of each phase, we set aside the prior set of documentation and sit with blank sheets of paper to begin the next phase “fresh”. 
+The records of elicited requirements information serve as references when we start writing the requirements documents. 
+The requirements documents serve as references when we start writing the design documents. 
+The design documents serve as references when we start writing the code. 
+But each new step is, in essence, a fresh start. 
+There’s a certain wisdom in this. There’s a real danger in making design decisions when writing early requirements, or in having people reading the requirements think that you made a design decision when choosing notations or writing explanations as part of the requirements. 
+A fresh start helps remind designers that they have the freedom, if not the obligation, to consider alternatives. 
+Evolution 
+But the OO view is very different. If we buy into the OO philosophy, then we take a more evolutionary process. 
+OOA is largely viewed as a model-building activity: 
+The result is, eventually, a design that had clear ties to the original model of the world before we started our project. 
+Model Building 
+The primary models of Object Oriented Analysis and Design are: 
+domain model 
+analysis model 
+design model 
+ 
+ 
+A domain model is a model of the application domain as it currently exists, before we began our new development project. The point of the domain model is to be sure the development team understands the world that the system will work in. 
+The domain model describes the world in terms of objects interacting with one another via messages. 
+Not every project needs a domain model 
+e.g., If the team has done several projects already in this application domain, they may already share a common domain model. 
+(Fortunately, most companies work in a small number of application domains. If they hired you last month to develop software for analyzing seismic data for petroleum engineering, they are unlikely to ask you to develop a compiler or a word processor next month.) 
+In that case, the team may already have a good understanding of the domain. 
+Even if a document describing the domain model is desired, domain models tend to be highly reusable since the world around our software systems usually changes fairly slowly. 
+Interacting Objects 
+All OOA models are based on the concept of objects interacting with one another by the exchange of messages (function calls). 
+ 
+ 
+Hence, even if we are modeling a physical object or a human being, we write our models in terms of classes with an interface of attributes and operations. 
+E.g., 
+An analysis model is a model of how the world will interact with the software system that we envision. As such, it is our statement of just what the system will do when it is working. 
+ 
+ 
+There is a real temptation to simply assume that the automated system will simply squat in the middle of the world, interacting with all the real world objects, sort of like this: 
+Or if you prefer,… 
+It’s Magic! 
+ 
+ 
+Poof! We have an analysis model! 
+Not wrong, per se, but it’s certainly not helpful. 
+Such an approach is fundamentally at odds with the OO philosophy, though. 
+We should look to the real world to suggest how to decompose our system. 
+In this case, we have not decomposed it at all – just wrapped it up into a single black box. 
+All the hard decisions still need to be made. 
+And we have thrown out any insight we gained from building our domain model. 
+In essence we have not done any analysis at all here. This “model” isn’t wrong, per se, but it’s certainly not helpful. We’ve basically thrown away everything we’ve learned in the domain model about how objects really interact. We’re treating the new program as a simple box, with no knowledge of its internal structure, Essentially, we’ve just deferred all the hard questions to the upcoming design. 
+Evolving the Analysis Model 
+What we really hope for is an evolution from our domain model to our analysis model. The OO philosophy tells us that the classes and interactions of our domain model … 
+ 
+ 
+… should carry over into our analysis. 
+In essence, we hope to retain these classes, add more detail to our understanding of them, and to establish a boundary that tells us which of these classes and behaviors will be automated, which will remain entirely unautomated, and which will have some portion automated while other parts remain external. 
+The Boundary 
+ 
+ 
+… establish a boundary that tells us which of these classes and behaviors will 
+be automated 
+remain external 
+be a mixture of the two 
+The system, then, remains a collection of interacting objects rather than an unstructured black box. 
+There’s a definite overlap in the purpose of a requirements document and of an analysis model. Some will regard the analysis model as a kind of requirements specification. In some projects, though, a requirements document will still be required as something for customers or management to sign off on. But the analysis model is the basis from which the eventual requirements document is derived. 
+The evolutionary approach will carry forward, in an OO-style project, from requirements into design. When building the design model, we will start with the classes (and their APIs/interfaces) and make merely the changes we deem necessary for an effective design. 
+(OOA is covered in more detail in CS330.) 
+========Page [END]: Eliciting Requirements.html===========
+========Page [BEGIN]: Writing Requirements.html===========
+Writing Requirements
+Abstract 
+Requirements documents are written in many different forms. We will look the components common to many of these, with particular attention to the distinction between functional requirements and nonfunctional requirements. 
+We will look, in detail, at a standard format for Software Requirements Specification (SRS) documents from the IEEE, and we will look more briefly at some alternatives. 
+Problems of requirements analysis 
+Waterfall processes often distinguished between 
+Requirements definitions: Customer-oriented descriptions of the system’s functions and constraints on its operation 
+Requirements specifications: Precise and detailed descriptions of the system’s functionality and constraints. 
+Functional requirements are statements of the services that the system should provide 
+Non-functional requirements are constraints on the services and functions offered by the system 
+Can lead to problems with 
+Some years ago, I worked on a series of research projects that made use of a Requirements Definition written by a NASA contractor, Charles Rivers Analytics. An updated copy of that document can be found here. 
+It describes a Redundant Strapped-Down Inertial Measurement Unit, a device that forms part of an aircraft’s navigation system. It uses a bank of accelerometers (sensors that can measure acceleration along a straight line) to determine, at any moment in time, how much and in what direction the aircraft is accelerating. 
+Integrated over time, the acceleration can yield the history of velocity changes by the aircraft. Integrated again, one can estimate how far and in what direction the aircraft has traveled. 
+ 
+ 
+Physically, the RSDIMU consists of a square-based pyramid with the triangular faces being equilateral triangles (a semi-octahedron). 
+ 
+ 
+On each triangular face are mounted two sensors, at right angles to each other. 
+That gives a total of 8 sensors, all at varying angles to one another. That’s more than enough to determine the acceleration of the aircraft in 3 dimensions. 
+This redundancy (the “R” in RSDIMU) is important because: 
+Over time, some sensors may fail, 
+Like all physical measurement devices, the sensors are noisy – there are random errors in any real measurement process. 
+From the RSDIMU Requirements Definition: 
+An RSDIMU consists of a skewed array of redundant inertial sensors and exemplifies the current trend for designing hardware fault tolerant inertial measurement units (IMU’s) for high reliability applications. The portion of the RSDIMU you will handle contains eight linear accelerometers mounted on the four triangular faces of a semioctahedron. 
+Your procedure will have two functions, both of which are a consequence of the redundancy in the sensor complement of the RSDIMU. The first function is to perform a consistency check to detect and isolate failed sensors. The second is to use the sensors found to be good by the first check to provide estimates of the vehicle’s linear acceleration expressed as components along the north, east, and down axes of a navigational frame of reference. 
+⋮ 
+an RSDIMU as described here would operate as follows. With the vehicle stationary, as series of sensor readings would be taken over time, and this would comprise the calibration data set for that particular flight. During flight, the sensors would be read periodically at regular time intervals to provide input for the navigation software. 
+Critique 
+The preceding requirements mix up functional and non-functional requirements and are incomplete. 
+A simpler requirements definition. 
+Read through this. 
+The SRS (Software Requirements Specifications) adds detail to the requirements definition. 
+An SRS should be 
+Most of these are self-explanatory. 
+Requirements should be written so that they can be objectively verified 
+This is not good: 
+The system should be easy to use by experienced controllers and should be organized in such a way that user errors are minimized. 
+The error rate should be been quantified 
+Experienced controllers should be able to use all the system functions after a total of two hours training. After this training, the average number of errors made by experienced users should not exceed two per day. 
+Making the Subjective Objective 
+Some possible objective measures of properties that we often consider to be subjective: 
+Requirements traceability means that related requirements are linked in some way and that requirements are (perhaps) linked to their source 
+Improving Traceability 
+"23: The system shall do A and B. 
+into 
+"23: The system shall do A. 
+"24: The system shall do B. 
+so that we can talk about requirements being satisfied or failed on an individual basis. 
+Cross-reference related requirements using this unique number 
+Produce a cross-reference matrix for each requirements document showing related requirements. 
+There are many different styles for writing requirements. 
+The choice often depends on 
+Local culture – what the developers are familiar with. 
+Overall organization 
+Perhaps most common is the use of a mixture of natural language, mathematics, and diagrams, in a detailed numbered list: 
+3. Physical structure: 
+The RSDIMU is composed of an instrument and a display. The display is discussed in Section 6.3. This section is devoted to the structure of the instrument package. 
+3.1 The instrument package is a semi-octahedron (a square-based pyramid) (Figure 1). 
+3.1.1 It has four non-base faces, named A, B, C, or D. 
+3.1.2 Each face contains two sensors, named the x and y sensors. 
+3.1.2.1 Associated with each sensor is a set of misalignment angles. These are specified further in Section 2.3.2. 
+Rationale: There is an ideal position for each sensor, but the physical mounting may differ slightly. 
+3.1.2.2 The misalignment angles are assumed to be small enough (less than 5 degrees) for the sine of the angle to be approximately equal to the value of the angle expressed in radians. 
+3.1.3 The temperature of the face, temp, determines the temperatures of the sensors mounted on the face. 
+Rationale: Sensor output varies with temperature (see section 4.6). 
+Each numbered item is a separate functional requirement. 
+These are often described as “The system shall…” statements. 
+As you can see, however, they often (and maybe preferably) refer to previously introduced subsystems. 
+Works well when organizing by feature. 
+A pre-condition is what must be true before a function can be performed. 
+A post-condition describes what the function will accomplish as a boolean expression that will be true upon completion. 
+Both pre-conditions and post-conditions must be boolean statements. 
+There is a long tradition of documenting both functions (design and implementation) and functionality (requirements) with pre-conditions and post-conditions: 
+RSDIMU/Calibration/4.1 
+Function: Check for Noise 
+Description: The variance in a number of readings taken from one sensor while the vehicle was at rest are compared to a threshold value. Sensors whose variance exceeds the threshold are marked as failed due to excessive noise. 
+Inputs: Face, Sensor, raw sensor data collected on ground, noise threshold 
+Source: raw sensor data offraw from external measurement procedure 
+Outputs: Sensor failure linFail & noise indicators linNoise 
+Destination: Edge consistency check and acceleration estimation functions 
+Requires: Instrument 
+Pre-condition: Sensor is not already marked as failed 
+Post-condition: linFail[Face,Sensor] and linNoise[Face,Sensor*] will be set to true if std-dev(offraw) > 3 * linstd. 
+Side effects: Changes to sensor status affect face status as well. 
+The “Description” here is informal documentation. 
+The “real” specification is in the pre- and post- conditions and the side-effects. 
+The term side effect comes from programming where it refers to any effect of a function that cannot be observed by inspection of the return value and output parameters (e.g., changes to global variables). 
+Although this looks very low-level, the apparent variables and arrays like linFail and linNoise are actually defined elsewhere as signals that appear as rows of green/red lights on an indicator panel. 
+Because pre- and post-conditions are booleans, they are often expressed in mathematical or even programming language notation. 
+Requirements are generally divided into functional and non-functional. 
+Functional requirements are the ones that say “if the input is … the output will be …”. 
+These can include statements about: 
+Any requirement that isn’t functional, including 
+rather than, 
+“An operator shall not have to wait for the transaction to complete.” 
+Non-functional requirements examples 
+Product requirement 
+4.C.8 It shall be possible for all necessary communication between the APSE and the user to be expressed in the standard Ada character set. 
+Organizational requirement 
+9.3.2 The system development process and deliverable documents shall conform to the process and deliverables defined in XYZCo-SP-STAN-95. 
+External requirement 
+7.6.5 The system shall provide facilities that allow any user to check if personal data is maintained on the system. A procedure must be defined and supported in the software that will allow users to inspect personal data and to correct any errors in that data. 
+There are many ways to organize a requirements document, but this has been an industry standard for a long time. 
+(Source: IEEE Std 830-1998, Recommended Practice for Software Requirements Specifications, sect 5) 
+Much of this outline describes descriptive text that will “surround” the real requirements. 
+1. Introduction 
+2. Overall Description 
+Describe the general background affecting the product and its requirements. 
+Product perspective 
+4. Appendices 
+Skipping forward for just a moment,… 
+3. Specific Requirements 
+The is the real heart of the IEEE SRS — this is where we actually put the requirements. 
+"This section of the SRS should contain all of the software requirements to a level of detail sufficient to enable designers to design a system to satisfy those requirements, and testers to test that the system satisfies those requirements. 
+Section 3 can be organized in different ways ( IEEE Std 830-1998, sect 5.3.7 ) 
+Choose an organization that divides the requirements up into natural, easily understood groups. 
+However it is organized, it must eventually describe 
+All of these organizations observe strict separation of functional and non-functional requirements. 
+Some systems have distinct modes of operation that server to strictly limit what functions can be performed at any one time. 
+Here is the organization of section 3: 
+This is supporting text. Refer to the IEEE standard for details. 
+An alternate form ot the organization by mode allows separate supporting text for each distinct mode. 
+This is where the functional reqts are stated. This is the core of the SRS. 
+This is where the non-functional reqts are placed. 
+Some systems have multiple user classes or roles, with very different functionality seen by each role. 
+This organization is similar to the previous one, replacing modes by user roles 
+This organization is used when the most distinctive characterstic of the system is the different kinds of stimuli – external events or inputs – to which the system must respond. 
+If you have performed a full object-oriented analysis and formulated domain and analysis models as a collection of interacting objects, you can use your analysis model as the basis for organizing and stating your reqts. 
+Both the supporting text and non-functinal reqts areas are unchanged. 
+The division of section 3.2 is very different from what came before, but makes sense from an OOA point of view. 
+I would expect any SRS using this organization to include lots of UML, amounting to the entire analysis model being embedded in the SRS. 
+And presumably, the doman model appeared in the earlier requirements Definition. 
+If we organize by object/class, we are talking about classes discovered and documented in the domain model or analysis model. 
+(You would not choose this organization if you had not started with OOA.) 
+They are not necessarily classes that will appear in the design or implementation. 
+Features can be any readily observable behavior or functionality. 
+This has supporting text for describing each feature, but the core content is still the functional reqts. 
+The reference to “Stimulus/Response” means that we want to document the inputs/events that trigger the use of this feature, and summarize the effects/outputs of the feature. 
+This organization supports a form of data-flow analysis that was wide-spread in the pre-OOA days. 
+Here is a complete SRS in the IEEE 830 style. 
+Organized by feature 
+Pick a feature out of section 3 (e.g., “Assignments”). 
+How does this stack up against our desired quality attributes: 
+There is always a dedicated group of advocates who maintain that the use of natural language in requirements specifications is a fundamental flaw. 
+They argue for any of several techniques of formal specification. 
+The influence of formal specification languages on conventional practice lies in the concepts of preconditions and postconditions. 
+A formal specification of the RSDIMU 
+ 
+ 
+ 
+ 
+Some schemas from the RSDIMU specification: 
+The first schema says that a “Point” can be described as 
+It also says that the three real numbers and the vector are closely related – essentially the real components are just a shorthand for the corresponding components of the vector. 
+The second schema says that a “Direction” 
+========Page [END]: Writing Requirements.html===========

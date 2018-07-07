@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="UTF-8"?><html><head><meta charset="UTF-8"/><link href="../../styles/md-scroll.css" media="screen, projection, print" rel="stylesheet" type="text/css"/><link href="../../styles/md-scroll-ext.css" media="screen, projection, print" rel="stylesheet" type="text/css"/><meta content="width=device-width, initial-scale=1" name="viewport"/><link href="https://www.cs.odu.edu/~zeil/styles/highlight.js/styles/googlecode.css" rel="stylesheet"/><script src="https://www.cs.odu.edu/~zeil/styles/highlight.js/highlight.pack.js"> </script><script>hljs.initHighlightingOnLoad();</script><script src="../../styles/md-scroll.js" type="text/javascript"> </script><script type="text/javascript">
+             window.MathJax = {
+               tex2jax: {
+               inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+               processEscapes: true
+             }
+           };
+           </script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"> </script><title>Software Development Process Models</title></head><body><script>sshowControl0 = { counter: 1,
+             showNumber: 0, max: 1};
+             window.onhashchange = hashHasChanged;</script><div class="navHeader" id="slideshowControlA0"><table class="navHeader"><tr class="slideshowcontrol"><td class="slideshowcontrolLeft"/><td class="slideshowcontrolMiddle">
+<a class="imgLink" href="../../Directory/outline/index.html" title="Course home/outline"><img src="../../graphics/home.png"/></a>
+<a href="mailto:tkennedy@cs.odu.edu?subject=CS350%2C%20Software%20Development%20Process%20Models"><img src="../../graphics/email.png" title="Email to instructor"/></a><span style="margin: 0 32px;"/>
+<a class="imgLink" href="processModels__slides.html"><img src="../../graphics/slides.png" title="Slides for lectures"/></a></td><td class="slideshowcontrolRight"/></tr></table></div><div class="mainBody"><div class="titleblock"><h1 class="title">Software Development Process Models</h1><h2 class="author">Steven J Zeil</h2><div class="date">Last modified: Sep 14, 2017</div></div><div class="toc">Contents:<div class="toc-h1"><a href="#software-development-process-models">1 Software Development Process Models</a></div><div class="toc-h2"><a href="#common-activities">1.1 Common Activities</a></div><div class="toc-h1"><a href="#the-waterfall-model">2 The Waterfall Model</a></div><div class="toc-h2"><a href="#verification-validation">2.1 Verification &amp; Validation</a></div><div class="toc-h2"><a href="#testing-throughout-the-waterfall">2.2 Testing throughout the Waterfall</a></div><div class="toc-h2"><a href="#advantages-of-waterfall">2.3 Advantages of Waterfall</a></div><div class="toc-h2"><a href="#disadvantages-of-waterfall">2.4 Disadvantages of Waterfall</a></div><div class="toc-h1"><a href="#iterative-incremental-development">3 Iterative/Incremental Development</a></div><div class="toc-h2"><a href="#advantages">3.1 Advantages</a></div><div class="toc-h2"><a href="#disadvantages">3.2 Disadvantages</a></div><div class="toc-h1"><a href="#the-spiral-model">4 The Spiral Model</a></div><div class="toc-h2"><a href="#advantages-of-spiral-model">4.1 Advantages of Spiral Model</a></div><div class="toc-h2"><a href="#disadvantages-of-spiral-model">4.2 Disadvantages of Spiral Model</a></div><div class="toc-h1"><a href="#rational-unified-process">5 Rational Unified Process</a></div><div class="toc-h2"><a href="#unified-model-phases">5.1 Unified Model Phases</a></div><div class="toc-h2"><a href="#unified-model-phases-continued">5.2 Unified Model Phases Continued</a></div><div class="toc-h2"><a href="#key-concepts-of-the-rup">5.3 Key Concepts of the RUP</a></div><div class="toc-h2"><a href="#advantages-of-rup">5.4 Advantages of RUP</a></div><div class="toc-h2"><a href="#disadvantages-of-rup">5.5 Disadvantages of RUP</a></div><div class="toc-h1"><a href="#agile-methods">6 Agile Methods</a></div></div><p><strong>Abstract</strong></p>
+    <p>Each development organization has its own working process that it evolves for how it gets software development done. In this lesson, we look at the constituent steps that make up typical instances of these processes, and will survey some of the more common arrangments of those steps into a <span class="firstterm">software development process model</span>:</p>
+    <ul>
+  <li>the Waterfall Model</li>
+  <li>Iterative and Incremental Models</li>
+  <li>The Spiral Model</li>
+  <li>The Rational Unified Process</li>
+  <li>Agile models</li>
+</ul><a id="softwaredevelopmentprocessmodels"/><h1 id="software-development-process-models">1 Software Development Process Models</h1><p><strong>Abstract</strong></p>
+    <p>Each development organization has its own working process that it evolves for how it gets software development done.</p>
+    <p>Although that might sound chaotic, in practice there is pretty broad consensus on what the constituent steps are that make up the entire process. So it becomes a matter of arranging those steps, of tweaking the details, and especially of settling on the relative emphasis and level of detail in these steps.</p>
+    <p>The arrangements that companies arrive at are seldom entirely innovative. Instead, they fall into a few standard patterns, which we will survey in this lesson.</p>
+    <p>A <span class="firstterm">software development process model</span> (SDPM), a.k.a., a <span class="firstterm">software life-cycle model</span>, is the process by which an organization develops software.</p>
+    <ul>
+  <li>Projects typically broken into phases</li>
+  <li>There are varying criteria for entering or exiting each phase</li>
+</ul><a id="commonactivities"/><h2 id="common-activities">1.1 Common Activities</h2><p>Although there are many models (in theory, one per development team), there is pretty broad agreement on what needs to go on during this process:</p>
+    <ol>
+  <li>Recognition of problem / need / opportunity</li>
+  <li>Feasibility study</li>
+  <li>Analysis of requirements</li>
+  <li>Design of system</li>
+  <li>Implementation</li>
+  <li>Testing</li>
+  <li>Deployment</li>
+  <li>Maintenance</li>
+</ol><p>Different SDPMs will divide these activities among phases in different ways.</p>
+    <p>Let’s talk about a few of these in more detail.</p>
+    <a id="analysisofrequirements"/><h3 id="analysis-of-requirements">1.1.1 Analysis of Requirements</h3><ul>
+  <li>
+    <p>Examine existing system.</p>
+    
+    <ul>
+      <li>How does it work?</li>
+      <li>What are its shortcomings?</li>
+    </ul>
+  </li>
+  <li>
+    <p>Propose a new system</p>
+    
+    <ul>
+      <li>Enumerate precisely what the new system will do</li>
+    </ul>
+  </li>
+</ul><p>“System” here is used in its generic sense: a collection of people, organizations, machines, and procedures for getting things done. There’s almost always an existing system, even if it is totally un-automated.</p>
+    <p>If you are a follower of Object-Oriented (OO) approaches, you have a deep conviction that studying and, ultimately, simulating an existing system is a fundamental principle of software development. OO developers never ask the question “Is it possible to build a system that does <code>X</code>?”. That’s because the existing system serves as an existence proof — they’re already doing <code>X</code>, so we start by understanding and then simulating what they are doing now.</p>
+    <a id="commondocumentsfromrequirementsanalysis"/><h4 id="common-documents-from-requirements-analysis">Common Documents from Requirements Analysis</h4><ul>
+  <li>Feasibility report</li>
+  <li>Software Requirements Specification (SRS)
+    <ul>
+      <li>Detailed statement of problem</li>
+      <li>Functional requirements</li>
+      <li>Constraints on the system</li>
+    </ul>
+  </li>
+</ul><p>We’ll look at requirements in more detail in a later section.</p>
+    <h3 id="design">1.1.2 Design</h3><p>“Design” means deriving</p>
+    <p>a solution which satisfies the software requirements. </p>
+    <p>Commonly recognized subproblems include</p>
+    <ul>
+  <li>
+    <p><span class="firstterm">architectural design</span>,</p>
+    
+    <ul>
+      <li>the collection of decisions that need to be common to all components.
+        <p>Examples of architectural design decisions would be</p>
+    
+        <ul>
+          <li>Will the system run on a single machine or be  distributed over multiple CPUs?</li>
+          <li>Will outputs be stored in a file or in a  database?</li>
+          <li>How will run-{}time errors be handled?</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><span class="firstterm">high-level</span> design, </p>
+    
+    <ul>
+      <li>dividing the system into components, and</li>
+    </ul>
+  </li>
+  <li>
+    <p><span class="firstterm">low-level</span> design </p>
+    
+    <ul>
+      <li>choosing the data structures and algorithms for a single component.</li>
+    </ul>
+  </li>
+</ul><hr/><p><strong>A possible breakdown of design activities</strong></p>
+    <p>You are probably pretty familiar already with procedures for doing high-level and low-level design. Architectural design, on the other hand, is something that is seldom worth worrying about in the scale of projects addressed within an academic semester.</p>
+    <p><div class="noFloat"> </div>
+    <div style="text-align: center'"><img align="center" src="designproc.png" style="max-width: 50%;"/></div>
+    </p>
+    <p>The breakdown shown in this picture is probably more elaborate than you would have attempted, though the component ideas should, considered separately, be clear enough.</p>
+    <p>The diagram here suggests a fairly document-heavy process typical of Waterfall, our first process model.</p>
+    <h3 id="maintenance">1.1.3 Maintenance</h3><p>Maintenance is another practice that seldom arises in academic projects. Normally, when you do an assignment for a course, you’re completely done with at the end of the semester. Keeping it working, adding new functionality, etc., is not a concern.</p>
+    <p>But you’ve certainly seen how operating systems, application programs, games, and many other software products are subject to an ongoing process of bug fixes, enhancements, and new releases.</p>
+    <p>Maintenence can have a number of forms:</p>
+    <ul>
+  <li>Corrective
+    <ul>
+      <li>
+      <p>fixing problems</p>
+    </li>
+    </ul>
+  </li>
+  <li>Adaptive
+    <ul>
+      <li>changes in environment</li>
+    </ul>
+  </li>
+  <li>Perfective
+    <ul>
+      <li>adding features</li>
+      <li>improving performance</li>
+    </ul>
+  </li>
+  <li>Preventative
+    <ul>
+      <li>refactoring to improve maintainability
+        <ul>
+          <li><span class="firstterm">Refactoring</span> is a change made that preserves  the current behavior of the system.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul><a id="thewaterfallmodel"/><h1 id="the-waterfall-model">2 The Waterfall Model</h1><p><div class="noFloat"> </div>
+    <img src="waterfall0.png" style="float: right; max-width: 50%;"/></p>
+    <ul>
+  <li>
+    <p>The best known process model</p>
+    
+    <ul>
+      <li>dates from 1970’s</li>
+      <li>though widely derided, it remains widely used
+        <ul>
+          <li>and its terminology forms the basis for almost all discussions of other SDPMs</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+  <p>Defining characteristic: movement from phase to phase is always forward (downhill), irreversible</p>
+    </li>
+  <li>Milestones are set at each phase transition
+    <ul>
+      <li>schedule deadlines</li>
+      <li>required reports</li>
+      <li>required approval to move on</li>
+    </ul>
+  </li>
+</ul><p>The waterfall model gets its name from the fact that the first diagrams of this process illustrated it as a series of terraces over which a stream flowed, cascading down from one level to another. The point of this portrayal was that water always flows downhill — it can’t reverse itself. Similarly, the defining characteristic of the waterfall model is the irreversible forward progress from phase to phase.</p>
+    <p>Waterfall is often criticized as inflexible, in large part because of that irreversible forward motion. Many organizations, in practice, will do a kind of “waterfall with appeals”, allowing developers to revisit and revise decisions and documents from earlier phases after jumping through a number of deliberately restrictive hoops.</p>
+    <a id="verificationvalidation"/><h2 id="verification-validation">2.1 Verification &amp; Validation</h2><p>Most of the activities in Waterfall are familiar, with the possible exception of requirements analysis, which we will be looking at in more detail in a later lesson.</p>
+    <p>For now, I want to look at Verification and Validation (V&amp;V).</p>
+    <p><span class="firstterm">Verification &amp; Validation</span>: assuring that a software system  meets the users’ needs. </p>
+    <p>The principle objectives are:</p>
+    <ul>
+  <li>The discovery of defects in a system</li>
+  <li>The assessment of whether or not the system is usable in an  operational situation.</li>
+</ul><a id="whatsthedifference"/><h3 id="whats-the-difference-">2.1.1 What’s the Difference?</h3><ul>
+  <li>
+    <p>Verification:</p>
+    
+    <ul>
+      <li>“Are we building the product right” (Boehm)</li>
+      <li>The software should conform to its (most recent) specification</li>
+    </ul>
+  </li>
+  <li>
+    <p>Validation:</p>
+    
+    <ul>
+      <li>“Are we building the right product”</li>
+      <li>The software should do what the user really requires</li>
+    </ul>
+  </li>
+</ul><p>Verification is essentially looking for mistakes in our most recent bit of work by comparing what we have now to the most recent “official” document defining our system.</p>
+    <p>Validation is a return to first principles, comparing what we have now to what we (or our customers) originally wanted.</p>
+    <p>You might think that, in a process divided into steps, if we do each step “correctly”, then the entire sequence must be “correct”. In practice, though, the accumulation of small errors can lead to massive alterations over time. (That’s <a href="http://www.npr.org/blogs/krulwich/2011/06/01/131050832/a-mystery-why-can-t-we-walk-straight">not just a matter for programmers</a>.)</p>
+    <p>Most V&amp;V activities mix verification and validation together to different degrees.</p>
+    <hr/><p><strong>Testing</strong></p>
+    <ul>
+  <li><span class="firstterm">Testing</span> is the act of executing a program with selected data to uncover bugs.
+    <ul>
+      <li>As opposed to <span class="firstterm">debugging</span>, which is the process of finding the faulty code responsible for failed tests.</li>
+    </ul>
+  </li>
+  <li>Testing is the most common, but not the only form of V&amp;V</li>
+</ul><p>Industry figures of 1-3 faults per 100 statements are quite common.</p>
+    <p>Is testing verification or validation? A great deal depends on how we decide whether the test output is correct. If we do this by viewing the data ourselves and looking for things that jump out to our eyes as “wrong”, then we are doing mainly validation. On the other hand, if part of our design process was to set up a set of tests with files of their expected outputs, and we are simply comparing the actual output files to the expected output files, then we are doing more verification.</p>
+    <a id="testingthroughoutthewaterfall"/><h2 id="testing-throughout-the-waterfall">2.2 Testing throughout the Waterfall</h2><a id="testingstages"/><h3 id="testing-stages">2.2.1 Testing stages</h3><ul>
+  <li><span class="firstterm">Unit Test</span>: Tests of individual subroutines and modules,
+    <ul>
+      <li>
+      <p>usually conducted by the programmer.</p>
+    </li>
+    </ul>
+  </li>
+  <li><span class="firstterm">Integration Test</span>: Tests of “subtrees” of the total project hierarchy chart (groups of subroutines calling each other).
+    <ul>
+      <li>generally a team responsibility.</li>
+    </ul>
+  </li>
+  <li><span class="firstterm">System Test</span>: Test of the entire system,
+    <ul>
+      <li>supervised by team leaders or by V&amp;V specialists.</li>
+      <li>Many companies have independent teams for this purpose.</li>
+    </ul>
+  </li>
+  <li><span class="firstterm">Regression Test</span>: Unit/Integration/System tests that are repeated after a change has been made to the code.</li>
+  <li><span class="firstterm">Acceptance Test</span>: A test conducted by the customers or their representatives to decide whether to purchase/accept a developed system.</li>
+</ul><a id="notjustinonephase"/><h3 id="not-just-in-one-phase">2.2.2 Not just in one phase</h3><p><div class="noFloat"> </div>
+    <img src="vandvv.png" style="float: right; max-width: 50%;"/></p>
+    <p>Although the waterfall model shows V&amp;V as a separate phase near the end, we know that some forms of V&amp;V occur much earlier. </p>
+    <ul>
+  <li>Requirements are validated in consultation with the customers.</li>
+  <li>Unit testing occurs during Implementation, etc.</li>
+</ul><p>So this phase of the waterfall model really describes system and acceptance testing.</p>
+    <hr/><p><strong>A Still-broader View</strong></p>
+    <p>Even the “V&amp;V V” does not capture the full context of V&amp;V: </p>
+    <ul>
+  <li>Requirements must be validated</li>
+  <li>Designs may be validated &amp; verified</li>
+  <li>Maintenence changes are tested</li>
+</ul><a id="advantagesofwaterfall"/><h2 id="advantages-of-waterfall">2.3 Advantages of Waterfall</h2><ul>
+  <li>Linear structure is easy to understand</li>
+  <li>Development progress is easily estimated and explicitly documented</li>
+  <li>Widely known</li>
+  <li>Scales well</li>
+</ul><a id="disadvantagesofwaterfall"/><h2 id="disadvantages-of-waterfall">2.4 Disadvantages of Waterfall</h2><ul>
+  <li>Inflexible: corrections limited to current phase</li>
+  <li>In some projects, requirements are not known or understood early in  the life-cycle</li>
+  <li>Working version of system is only available near the end</li>
+  <li>Often becomes a documentation mill</li>
+</ul><a id="iterativeincrementaldevelopment"/><h1 id="iterative-incremental-development">3 Iterative/Incremental Development</h1><p><div class="noFloat"> </div>
+    <img src="evolution.png" style="float: right; max-width: 50%;"/></p>
+    <ul>
+  <li>A variety of related approaches
+    <ul>
+      <li>a counter-reaction to what many believe to be an overly rigid,  management-focused, waterfall model</li>
+    </ul>
+  </li>
+  <li>emphasize quick cycles of development,  usually with earlier and more user-oriented validation</li>
+  <li>Requirements specification, design and implementation are interleaved.</li>
+  <li>Each version adds a small amount of additional functionality.</li>
+</ul><p>As a counter-reaction to what many believe to be an overly rigid  waterfall model, there are a variety of incremental approaches that  emphasize quick cycles of development, usually with earlier and more  user-oriented validation.</p>
+    <p>There is a greater emphasis on producing intermediate versions, each adding a small amount of additional functionality. Some of these are <span class="firstterm">releases</span>, either external (released outside the team) or internal (seen only by the team), which may have been planned earlier.</p>
+    <p>What’s the difference between iterative and incremental?</p>
+    <ul>
+  <li>
+  <p>“Iterative” means that we can re-visit decisions, design, and code  produced in earlier iterative steps.</p>
+    </li>
+  <li>
+    <p>“Incremental” means that each iteration produces just a small unit  of additional functional behavior. We don’t try to build major subsystems of  the project in a single pass.</p>
+    
+    <ul>
+      <li>
+      <p>This often requires a more “vertical” view in which we implement  a bit of high level control code and pieces of related low-level  code.</p>
+    </li>
+      <li>
+      <p>As opposed to the “horizontal” approach of working “bottom up”  and implementing the low-level ADTS, then the code that calls,  upon them, then …, ending  with the top-level interface ot the whole program.</p>
+    </li>
+      <li>
+      <p>Or the “horizontal” approach of working “top down”  and implementing the most abstract code (the GUI or command-line  interfaces), then functions that they call, then the … ending  with the lowest-level ADTS that don’t call on anything else.</p>
+    </li>
+    </ul>
+  </li>
+</ul><hr/><p><strong>Iterative versus Incremental Models</strong></p>
+    <ul>
+  <li>
+    <p>Iterative – we do some set of process steps repeatedly.</p>
+    
+    <p>To use a programming analogy, this is iterative:</p>
+    
+    <pre><code class="c++">while (!done) {
+   &#x22ee;
+}
+</code></pre>
+  </li>
+  <li>
+    <p>Incremental – we accumulate value in small steps.</p>
+    
+    <p>To use a programming analogy, this is incremental:</p>
+    
+    <pre><code class="c++">total += x;
+</code></pre>
+  </li>
+</ul><p>Incremental development is almost always iterative, but you can be iterative without being incremental.</p>
+    <hr/><p><strong>Variations</strong></p>
+    <ul>
+  <li>
+    <p>Some projects employ <span class="firstterm">throw-away prototyping</span>,  versions whose code is only used to demonstrate  and evaluate possibilities.</p>
+    
+    <ul>
+      <li>This can lead to insight into poorly understood requirements.</li>
+    </ul>
+  </li>
+  <li>
+  <p><span class="firstterm">Evolutionary prototyping</span> keeps the prototypes,  gradually evolving them into the final deliverable</p>
+    </li>
+  <li>
+  <p>Some waterfall projects may employ incremental schemes for parts of large systems (e.g., the user interface).</p>
+    </li>
+</ul><h2 id="advantages">3.1 Advantages</h2><ul>
+  <li>Ability to explore poorly understood requirements</li>
+  <li>Flexibility</li>
+  <li>Working implementation is available early.</li>
+</ul><h2 id="disadvantages">3.2 Disadvantages</h2><ul>
+  <li>
+  <p>Poor process visibility (e.g., are we on schedule?),</p>
+    </li>
+  <li>
+  <p>Continual small drifts from the main architecture leading to poorly structured systems.</p>
+    </li>
+  <li>
+  <p>Dead-ends (the local optimization problem)</p>
+    </li>
+</ul><a id="thespiralmodel"/><h1 id="the-spiral-model">4 The Spiral Model</h1><p><div class="noFloat"> </div>
+    <img src="spiral.png" style="float: right; max-width: 67%;"/></p>
+    <p>1986, Boehm</p>
+    <p>An iterative approach with a focus on risk management</p>
+    <ul>
+  <li>
+  <p>Each iteration builds on the earlier ones</p>
+    </li>
+  <li>
+    <p><span class="firstterm">risk</span>: an uncertain outcome with a potential for loss </p>
+    
+    <p>Examples:</p>
+    
+    <ul>
+      <li>team inexperience</li>
+      <li>inability to meet schedule</li>
+      <li>uncertainty in requirements</li>
+    </ul>
+  </li>
+</ul><hr/><p><strong>Spiral Phases</strong></p>
+    <ol>
+  <li>Determine objectives, alternatives and constraints:
+    <ul>
+      <li>Define requirements</li>
+      <li>Alternatives (including, e.g., 3rd-party code) identified</li>
+      <li>Constraints defined</li>
+    </ul>
+  </li>
+  <li>Identify and resolve risks, evaluate alternatives:
+    <ul>
+      <li>Evaluate identified alternatives</li>
+      <li>Identify risks</li>
+      <li>Resolve risks</li>
+      <li>Produce prototype</li>
+    </ul>
+  </li>
+  <li>Develop and test
+    <ul>
+      <li>Analyze performance of prototype</li>
+      <li>Create &amp; review design, code, test</li>
+    </ul>
+  </li>
+  <li>Plan next iteration
+    <ul>
+      <li>Often includes customer evaluation of  prototype or current project iteration</li>
+    </ul>
+  </li>
+</ol><a id="advantagesofspiralmodel"/><h2 id="advantages-of-spiral-model">4.1 Advantages of Spiral Model</h2><ul>
+  <li>Flexible – emphasis on alleviating risks as they are identified</li>
+  <li>Considerable opportunity for validation</li>
+  <li>Scales well</li>
+  <li>Good process visibility</li>
+  <li>Working releases/prototypes produced early</li>
+</ul><a id="disadvantagesofspiralmodel"/><h2 id="disadvantages-of-spiral-model">4.2 Disadvantages of Spiral Model</h2><ul>
+  <li>Can be costly (slow?)</li>
+  <li>Risk analysis is a specialized skill, but critical to project success</li>
+</ul><a id="rationalunifiedprocess"/><h1 id="rational-unified-process">5 Rational Unified Process</h1><ul>
+  <li>1997, Jacobsen, Booch, and Rumbaugh,</li>
+</ul><p>These three were already some of the biggest names in OOA&amp;D before they decided to collaborate on a unified version of their previously distinctive approaches.</p>
+    <p>Their collaboration coincided with their being hired by Rational Corp., a major vendor of software development tools. Hence the “Rational” in RUP refers to the name of the company. It’s not bragging. They aren’t saying that this is a uniquely intellectual approach or that Waterfall, Spiral, et. al., are “irrational”.</p>
+    <a id="unifiedmodelphases"/><h2 id="unified-model-phases">5.1 Unified Model Phases</h2><p><div class="noFloat"> </div>
+    <div style="text-align: center'"><img align="center" src="process1.png" style="max-width: 50%;"/></div>
+    </p>
+    <ul>
+  <li>
+    <p>Inception: initial concept</p>
+    
+    <ul>
+      <li>Pitching the project concept</li>
+      <li>Usually informal, low details.</li>
+      <li>“Perhaps we should build a … ”</li>
+    </ul>
+  </li>
+  <li>
+    <p>Elaboration: exploring requirements</p>
+    
+    <ul>
+      <li>Adding detail to our understanding of what the system should do.</li>
+      <li>Produces
+        <ul>
+          <li>Domain model</li>
+          <li>Analysis model</li>
+          <li>Requirements document</li>
+          <li>Release plan</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul><a id="unifiedmodelphasescontinued"/><h2 id="unified-model-phases-continued">5.2 Unified Model Phases Continued</h2><ul>
+  <li>
+    <p>Construction: building the software</p>
+    
+    <ul>
+      <li>Design &amp; implementation</li>
+    </ul>
+  </li>
+  <li>
+    <p>Transition: final packaging</p>
+    
+    <ul>
+      <li>Activities that can’t be done incrementally during construction,  e.g.,
+        <ul>
+          <li>performance tuning</li>
+          <li>user training</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul><hr/><p><strong>Releases</strong></p>
+    <p>One task during Elaboration is to plan releases:</p>
+    <p><div class="noFloat"> </div>
+    <div style="text-align: center'"><img align="center" src="process2.png" style="max-width:  50%;"/></div>
+    </p>
+    <ul>
+  <li>
+  <p>Major phases are divided into <span class="firstterm">increments</span>, each of which  ends with a release.</p>
+    </li>
+  <li>
+    <p>A <span class="firstterm">release</span> is some  kind of product that implements some part of the required  functionality</p>
+    
+    <ul>
+      <li>Its existence and/or acceptance by management shows  that we are ready to move on.</li>
+    </ul>
+  </li>
+  <li>
+    <p>The <span class="firstterm">release plan</span> records decisions  about </p>
+    
+    <ul>
+      <li>How many releases there will be</li>
+      <li>What functionality will be added with each  release</li>
+      <li>When the releases will be made</li>
+      <li>Which releases are internal (i.e., only the development  team sees them) and which are external</li>
+    </ul>
+  </li>
+</ul><p>The term “increments” gets used a lot in different models. Sometimes it refers, as it does here, to the time period during which the next release of the software is developed. In other cases it refers to the next version of the software. In other cases it refers to the software release itself.</p>
+    <a id="keyconceptsoftherup"/><h2 id="key-concepts-of-the-rup">5.3 Key Concepts of the RUP</h2><a id="commonworkflows"/><h3 id="common-workflows">5.3.1 Common Workflows</h3><p><div class="noFloat"> </div>
+    <img src="Development-iterative.png" style="float: right; max-width: 60%;"/></p>
+    <ul>
+  <li>Although waterfall and other SDPMs treat analysis, design, etc., as  one-time phases</li>
+  <li>Careful study shows that developers do analysis, design, etc.,  <span class="emph">activities</span> continuously.
+    <ul>
+      <li>
+      <p>Analysis: what do we need the (currently considered part of the)  system to do?</p>
+    </li>
+      <li>
+      <p>Design: how do we get it to do that?</p>
+    </li>
+      <li>Implementation: write out that series of design decisions in  an appropriate notation (e.g., code, diagrams, requirements  statements)</li>
+      <li>Validation: Is our implementation correct?</li>
+    </ul>
+  </li>
+</ul><p>For example, deep in the implementation phase of a Waterfall project, a programmer is assigned a function to implement.</p>
+    <p>That programmer will</p>
+    <ul>
+  <li>think carefully about <em>what</em> the function is supposed to do  (analysis)</li>
+  <li>choose an algorithm that will accomplish that (design)</li>
+  <li>code the function (implementation)</li>
+  <li>unit-test that function (validation).</li>
+</ul><p>But we aren’t <em>in</em> the analysis, design, or validation <em>phases</em>.</p>
+    <p>The diagram on the right is supposed to illustrate that, although the percentage of time devoted to the activities of analysis, design, implementation, and validation, none of those activites ever entirely go away and are, once and for all, <em>done</em>.</p>
+    <p>A process model may still use some of these same terms as the name for major phases, but that’s really a different sense of the terms. For example, the “Design” phase of the Waterfall is when the language in which we “implement” is the collection of notations and diagrams that we use for system design. But we still analyze, design, implement, and validate our Design decisions.</p>
+    <hr/><p><strong>ADIV</strong></p>
+    <p>In the RUP, all progress is made as continual ADIV cycles</p>
+    <ul>
+  <li>ADIV: Analysis, Design, Implementation, Validation</li>
+</ul><p><div class="noFloat"> </div>
+    <div style="text-align: center'"><img align="center" src="spiralsUnified.png" style="max-width: 80%;"/></div>
+    </p>
+    <a id="anevolutionofmodels"/><h3 id="an-evolution-of-models">5.3.2 An Evolution of Models</h3><p>RUP supports development via a series of models.</p>
+    <p>The most important of these are</p>
+    <ul>
+  <li>
+    <p>Domain Model</p>
+    
+    <ul>
+      <li>A model of the application domain as it currently exists,  <span class="emph">before</span> we began our new development project.</li>
+      <li>Ensures that the development team understands the world that the  system will work in.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Analysis Model</p>
+    
+    <ul>
+      <li>A model of how the world will interact with the software system that we envision.</li>
+      <li>Expresses <span class="emph">what</span> the system will do  when it is working.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Design Model</p>
+    
+    <ul>
+      <li>Describes <span class="emph">how</span> we can get the system to do the things the  analysis model says it should do.</li>
+    </ul>
+  </li>
+</ul><hr/><p><strong>Models Evolved</strong></p>
+    <p>RUP embraces the</p>
+    <blockquote>
+  <p><em>Object-Oriented philosophy</em></p>
+    
+  <ul>
+    <li>Every program is a simulation</li>
+    <li>The quality of a program’s design is proportional to how  faithfully the objects and interactions in the program reflect  those in the real world</li>
+  </ul>
+</blockquote><ul>
+  <li>
+  <p>Domain, analysis, and design models all focus on how classes of  objects interact with one another</p>
+    </li>
+  <li>
+  <p>Most of the classes in the design are presumed to have already been  described as part of the analysis model,</p>
+    </li>
+  <li>Most of the classes in the analysis model are presumed to have already been  described as part of the domain model,</li>
+</ul><a id="advantagesofrup"/><h2 id="advantages-of-rup">5.4 Advantages of RUP</h2><ul>
+  <li>Process details are expressed in general terms, allowing local  customization</li>
+  <li>Heavy emphasis on documentation (UML)</li>
+  <li>Can embrace incremental releases</li>
+  <li>Evolutionary approach can lead to clean implementations</li>
+</ul><a id="disadvantagesofrup"/><h2 id="disadvantages-of-rup">5.5 Disadvantages of RUP</h2><ul>
+  <li>Process details are expressed in general terms, providing minimal  guidance and requiring local customization</li>
+  <li>Complex</li>
+  <li>Heavy documentation can be expensive</li>
+</ul><a id="agilemethods"/><h1 id="agile-methods">6 Agile Methods</h1><p>A modern variant of incremental development.</p>
+    <p>Agile development is</p>
+    <ul>
+  <li>A reaction against heavily-managed, documentation-heavy processes</li>
+  <li>A social movement within the software development profession
+    <ul>
+      <li>Introduced in the <a href="http://agilemanifesto.org/">Agile Manifesto</a>  (2001)</li>
+    </ul>
+  </li>
+</ul><hr/><p><strong>Emphasis Areas</strong></p>
+    <p>Emphasis is on</p>
+    <ul>
+  <li>Iterative &amp; incremental development</li>
+  <li>Frequent communication with customer representatives
+    <ul>
+      <li>Work is organized via “user stories”</li>
+    </ul>
+  </li>
+  <li>Short “time-boxed” development cycles</li>
+  <li>Focus on quality as a matter of professional pride</li>
+  <li>Adoption of professional best-practices</li>
+</ul><p>We’ll look at Agile in more detail later in the semester, after we have learned more about these “best practices” that lie at the heart of the process.</p>
+    </div><script>sshowControl0 = { counter: 1,
+             showNumber: 0, max: 1};
+             window.onhashchange = hashHasChanged;</script><div class="navFooter" id="slideshowControl0"><table class="navFooter"><tr class="slideshowcontrol"><td class="slideshowcontrolLeft"/><td class="slideshowcontrolMiddle">
+<a class="imgLink" href="../../Directory/outline/index.html" title="Course home/outline"><img src="../../graphics/home.png"/></a>
+<a href="mailto:tkennedy@cs.odu.edu?subject=CS350%2C%20Software%20Development%20Process%20Models"><img src="../../graphics/email.png" title="Email to instructor"/></a><span style="margin: 0 32px;"/>
+<a class="imgLink" href="processModels__slides.html"><img src="../../graphics/slides.png" title="Slides for lectures"/></a></td><td class="slideshowcontrolRight"/></tr></table></div><div class="copyright">© 2015-2018, Old Dominion Univ.</div></body></html>

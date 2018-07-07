@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="UTF-8"?><html><head><meta charset="UTF-8"/><link href="../../styles/md-scroll.css" media="screen, projection, print" rel="stylesheet" type="text/css"/><link href="../../styles/md-scroll-ext.css" media="screen, projection, print" rel="stylesheet" type="text/css"/><meta content="width=device-width, initial-scale=1" name="viewport"/><link href="https://www.cs.odu.edu/~zeil/styles/highlight.js/styles/googlecode.css" rel="stylesheet"/><script src="https://www.cs.odu.edu/~zeil/styles/highlight.js/highlight.pack.js"> </script><script>hljs.initHighlightingOnLoad();</script><script src="../../styles/md-scroll.js" type="text/javascript"> </script><script type="text/javascript">
+             window.MathJax = {
+               tex2jax: {
+               inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+               processEscapes: true
+             }
+           };
+           </script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"> </script><title>Eliciting Requirements</title></head><body><script>sshowControl0 = { counter: 1,
+             showNumber: 0, max: 1};
+             window.onhashchange = hashHasChanged;</script><div class="navHeader" id="slideshowControlA0"><table class="navHeader"><tr class="slideshowcontrol"><td class="slideshowcontrolLeft"/><td class="slideshowcontrolMiddle">
+<a class="imgLink" href="../../Directory/outline/index.html" title="Course home/outline"><img src="../../graphics/home.png"/></a>
+<a href="mailto:tkennedy@cs.odu.edu?subject=CS350%2C%20Eliciting%20Requirements"><img src="../../graphics/email.png" title="Email to instructor"/></a><span style="margin: 0 32px;"/>
+<a class="imgLink" href="eliciting__slides.html"><img src="../../graphics/slides.png" title="Slides for lectures"/></a></td><td class="slideshowcontrolRight"/></tr></table></div><div class="mainBody"><div class="titleblock"><h1 class="title">Eliciting Requirements</h1><h2 class="author">Steven J Zeil:</h2><div class="date">Last modified: Sep 14, 2017</div></div><div class="toc">Contents:<div class="toc-h1"><a href="#basic-principles-of-requirements-analysis">1 Basic Principles of Requirements Analysis</a></div><div class="toc-h1"><a href="#eliciting-requirements">2 Eliciting Requirements</a></div><div class="toc-h1"><a href="#obtaining-requirements-information">3 Obtaining Requirements Information</a></div><div class="toc-h2"><a href="#interviews">3.1 Interviews</a></div><div class="toc-h2"><a href="#prototyping">3.2 Prototyping</a></div><div class="toc-h1"><a href="#organizing-requirements-information">4 Organizing Requirements Information</a></div><div class="toc-h2"><a href="#viewpoint-analysis">4.1 Viewpoint Analysis</a></div><div class="toc-h2"><a href="#use-cases">4.2 Use Cases</a></div><div class="toc-h2"><a href="#object-oriented-analysis">4.3 Object-Oriented Analysis</a></div></div><p><strong>Abstract</strong></p>
+    <p><span class="firstterm">Eliciting requirements</span> is the process of determining what the customers actually need a proposed system to do and of documenting that information in a way that will allow us to write a more formal requirements document later.</p>
+    <p>In this lecture we survey some key concepts, problems, and actitivies associated with requirements elicitation, and then look at <span class="firstterm">use cases</span>, one of the most popular ways of documenting our understanding of those requirements.</p>
+    <a id="basicprinciplesofrequirementsanalysis"/><h1 id="basic-principles-of-requirements-analysis">1 Basic Principles of Requirements Analysis</h1><p>Understanding the customer’s requirements for a software system</p>
+    <ul>
+  <li>
+  <p>Developers working with customers to find out about the application domain, the services that the system should provide and the system’s operational constraints</p>
+    </li>
+  <li>
+  <p>May involve end-users, managers, engineers involved in maintenance, domain experts, trade unions, etc. These are called <span class="firstterm">stakeholders</span></p>
+    </li>
+</ul><hr/><p><strong>Problems of requirements analysis</strong></p>
+    <ul>
+  <li>
+    <p>Stakeholders don’t know what they really want</p>
+    
+    <p>(Is this a real problem, or snobbery on the part of software developers? For as often as I see this “problem” listed, I’m never really sure.)</p>
+    
+  </li>
+  <li>
+  <p>Stakeholders express requirements in their own terms</p>
+    </li>
+  <li>Different stakeholders may have conflicting requirements</li>
+  <li>Organizational and political factors may influence the system requirements</li>
+  <li>The requirements may change during the analysis process.</li>
+  <li>New stakeholders may emerge</li>
+</ul><a id="elicitingrequirements"/><h1 id="eliciting-requirements">2 Eliciting Requirements</h1><p>The process of <span class="firstterm">eliciting requirements</span> is, fundamentally, an exercise in communication between developers and stakeholders.</p>
+    <ul>
+  <li>Problem 1: Obtaining information</li>
+  <li>Problem 2: Organizing the information obtained</li>
+</ul><a id="obtainingrequirementsinformation"/><h1 id="obtaining-requirements-information">3 Obtaining Requirements Information</h1><p>Common sources are</p>
+    <ul>
+  <li>
+  <p>Reading available documentation</p>
+    </li>
+  <li>
+  <p>Interviewing the stakeholders…</p>
+    </li>
+  <li>
+    <p>Facilitated meetings</p>
+    
+    <p>(i.e., gather the stakeholders around a table  for a formal discussion).</p>
+    
+  </li>
+  <li>
+  <p>Prototyping…</p>
+    </li>
+  <li>
+    <p>Direct observation (a member of the development team)</p>
+    
+    <p>A member of the development team physically observes the current process in operation.</p>
+    
+  </li>
+</ul><h2 id="interviews">3.1 Interviews</h2><ul>
+  <li>
+    <p>Interviews may focus on general questions, e.g.,</p>
+    
+    <p>“What do you do? ”What information do you need to do your job?“, ”What problems are you encountering with the current system?"</p>
+    
+  </li>
+  <li>
+    <p>Or may seek to elicit scenarios</p>
+    
+    <p>“Walk me through the process you follow when X happens.”</p>
+    
+  </li>
+</ul><p>These interviews can be as much about learning how the current system works as about what is desired from the new system.</p>
+    <ul>
+  <li>That’s consistent with object-oriented approaches where a <em>domain model</em> is  constructed of how the system works now, and that model is  gradually <em>evolved</em> into an <em>analysis model</em> of how we would  like it to work in the future,
+    <ul>
+      <li>including the possible automation of processes currently done  manually.</li>
+      <li>OO practice assumes that the structure of the new system will  mirror the structure of the old one to a significant degree, so  effort spent modeling the current world is also effort towards  modeling the new system.</li>
+    </ul>
+  </li>
+</ul><h2 id="prototyping">3.2 Prototyping</h2><ul>
+  <li>Building a quick mock-up of the eventual system
+    <ul>
+      <li>May ranges from paper mockups of screens to beta-test code</li>
+    </ul>
+  </li>
+  <li>Providing or displaying the prototype to the stakeholders</li>
+  <li>
+    <p>It can be an effective method to</p>
+    
+    <ul>
+      <li>Validate our understanding of the requirements</li>
+      <li>Elicit discussion on things that we mis-understood or failed to consider at all.</li>
+    </ul>
+  </li>
+</ul><a id="organizingrequirementsinformation"/><h1 id="organizing-requirements-information">4 Organizing Requirements Information</h1><a id="viewpointanalysis"/><h2 id="viewpoint-analysis">4.1 Viewpoint Analysis</h2><ul>
+  <li>Stakeholders represent different ways of looking at a problem or problem viewpoints.</li>
+  <li>This multi-perspective analysis is important as there may be no single correct way to analyze system requirements.
+    <ul>
+      <li>By approaching requirements from multiple viewpoints, we can  identify conflicting requirements among the stakeholders.</li>
+    </ul>
+  </li>
+</ul><a id="typesofviewpoint"/><h3 id="types-of-viewpoint">4.1.1 Types of viewpoint</h3><p>Viewpoints are perspectives on the system, not “people who view it”.</p>
+    <p>Common viewpoints include</p>
+    <ul>
+  <li>
+    <p>Data sources or sinks</p>
+    
+    <p>Viewpoints responsible for producing or consuming data.</p>
+    
+  </li>
+  <li>
+    <p>Representation frameworks:</p>
+    
+    <p>Viewpoints representing particular types of system model.</p>
+    
+    <ul>
+      <li>May be compared to discover requirements that would be  missed using a single representation.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Receivers of services:</p>
+    
+    <p>Viewpoints external to the system that receive services from it.</p>
+    
+    <ul>
+      <li>Particularly useful for interactive systems</li>
+    </ul>
+  </li>
+</ul><a id="thevordmethod"/><h3 id="the-vord-method">4.1.2 The VORD method</h3><p>VORD: Viewpoint-Oriented Requirements Definition</p>
+    <ul>
+  <li>Viewpoint identification
+    <ul>
+      <li>Discover viewpoints which receive system services and  identify the services provided to each viewpoint</li>
+    </ul>
+  </li>
+  <li>Viewpoint structuring
+    <ul>
+      <li>Group related viewpoints into a hierarchy. Common  services are provided at higher-levels in the hierarchy</li>
+    </ul>
+  </li>
+  <li>Viewpoint documentation
+    <ul>
+      <li>Refine the description of the identified viewpoints and  services</li>
+    </ul>
+  </li>
+  <li>Viewpoint-system mapping
+    <ul>
+      <li>Transform the analysis to an object-oriented design</li>
+    </ul>
+  </li>
+</ul><hr/><p><strong>Example: Checkbook balancing</strong></p>
+    <blockquote>
+  <p>Consider the design of software to balance a checkbook:</p>
+    
+  <ul>
+    <li>
+      <p>should accept transactions including</p>
+    
+      <ul>
+        <li>checks</li>
+        <li>deposits</li>
+        <li>withdrawals</li>
+        <li>interest accrued</li>
+        <li>service charges</li>
+      </ul>
+    </li>
+    <li>
+    <p>Allow transactions to be confirmed from bank statement</p>
+    </li>
+    <li>should show current and confirmed balances</li>
+  </ul>
+</blockquote><hr/><p><strong>Viewpoint Identification</strong></p>
+    <p>Plausible viewpoints are:</p>
+    <ul>
+  <li>Account</li>
+  <li>Bank</li>
+  <li>Account Holder</li>
+  <li>Clearing House</li>
+</ul><hr/><p><strong>Services Provided</strong></p>
+    <blockquote>
+  <ul>
+    <li>
+      <p>Account</p>
+    
+      <ul>
+        <li>apply transactions</li>
+      </ul>
+    </li>
+    <li>
+      <p>Bank</p>
+    
+      <ul>
+        <li>create/close accounts</li>
+        <li>receive transactions</li>
+        <li>initiate transactions (charges)</li>
+      </ul>
+    </li>
+    <li>
+      <p>Account holder</p>
+    
+      <ul>
+        <li>receive account statement</li>
+        <li>initiate transactions</li>
+        <li>examine register entries</li>
+        <li>get statement balance</li>
+        <li>get confirmed &amp; unconfirmed register balances</li>
+        <li>confirm transactions from statement</li>
+      </ul>
+    </li>
+    <li>
+      <p>Clearing House</p>
+    
+      <ul>
+        <li>receive checks</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote><hr/><p><strong>Viewpoint Documentation</strong></p>
+    <p>For each viewpoint, we document the data and services that are visible form that viewpoint.</p>
+    <blockquote>
+  <p><strong>Reference:</strong> Bank</p>
+    
+  <p><strong>Attributes:</strong> name, location, accounts list</p>
+    
+  <p><strong>Events:</strong> end-of-month, transaction arrival</p>
+    
+  <p><strong>Services:</strong></p>
+    
+  <ul>
+    <li>create/close accounts</li>
+    <li>receive transactions</li>
+    <li>initiate transactions (charges)</li>
+  </ul>
+  <p><strong>Sub-VPs:</strong></p>
+    
+</blockquote><hr/><p>And we document the services</p>
+    <blockquote>
+  <p><strong>Reference</strong>: receive transaction (account debit) </p>
+    
+  <p><strong>Rationale</strong>: electronic funds transfer, may be signal from clearing house of a check received </p>
+    
+  <p><strong>Specification</strong>: The account balance is checked to determine if adequate. If so, confirmation of the transaction is sent, the account balance is reduced by the transaction amount, and the transaction noted in the account log. If not, the account kind is consulted for overdraft policy, and the policy routine found there is invoked.</p>
+    
+  <p><strong>Viewpoints</strong>: Bank, Clearing House </p>
+    
+  <p><strong>NF Reqts</strong>: Response of confirmation, rejection, or unable-to-process must be made within 30 seconds, with a mean response less than 0.1 seconds.</p>
+    
+  <p><strong>Viewpoints</strong>: Bank </p>
+    
+</blockquote><a id="usecases"/><h2 id="use-cases">4.2 Use Cases</h2><p>Use cases have become popular as a means of organizing requirements.</p>
+    <ul>
+  <li>Often includes in requirements documents</li>
+  <li>Specific requirements are often linked back to a use case that  explain or justifies them.</li>
+</ul><hr/><p>A use case is a collection of scenarios.</p>
+    <ul>
+  <li>It depicts a functionality of the system,
+    <ul>
+      <li>typically beginning with some external input or action.</li>
+    </ul>
+  </li>
+  <li>It provides a step-by-step description of a main (success) scenario path.</li>
+  <li>It includes extensions / alternative paths.</li>
+</ul><a id="writingusecases"/><h3 id="writing-use-cases">4.2.1 Writing Use-Cases</h3><ol>
+  <li>Start with a collection of scenarios</li>
+  <li>Group by common user goals</li>
+  <li>Define the actors</li>
+  <li>Give brief descriptions of use cases</li>
+  <li>Give a detailed description of the basic path</li>
+  <li>Add alternative paths</li>
+</ol><hr/><p><strong>Example: grading tests</strong> </p>
+    <blockquote>
+  <p><strong>Grading an Assessment</strong></p>
+    
+  <p><em>Actors:</em> Scorer</p>
+    
+  <p><em>Main Path</em></p>
+    
+  <ol>
+    <li>
+    <p>The scorer begins with an assessment and a collection of  response documents.</p>
+    </li>
+    <li>
+    <p>For each item in the assessment, the scorer obtains the item’s  rubric. Then for each response document, the scorer goes to the  item response for that same item, grades the response using that  rubric, and adds the resulting score and (if provided) feedback  to the result document for that response document.</p>
+    </li>
+    <li>
+    <p>When all items have been graded, then the scorer  computes a total score for each results document.</p>
+    </li>
+    <li>
+    <p>The scorer add the score from each result document to  the grade book.</p>
+    </li>
+  </ol>
+  <p><em>Alternative:</em> Candidate by Candidate Scoring</p>
+    
+  <p>2: For each candidate, the scorer goes through each of the items. For  each item, the scorer obtains the item’s rubric, grades the item  response using that rubric, adds the resulting score and (if  provided) feedback to the result document for that response  document.</p>
+    
+</blockquote><hr/><p><strong>Example:</strong></p>
+    <blockquote>
+  <p><strong>Get Paid for Car Accident</strong></p>
+    
+  <p>Actors: Claimant, Accident victim making claim, Insurance Company, Company insuring Claimant, Agent, Insurance Company representative&gt; processing claim</p>
+    
+  <p><em>Main Success Scenario</em></p>
+    
+  <ol>
+    <li>Claimant submits claim with substantiating data.</li>
+    <li>Insurance Company verifies that Claimant owns a valid policy.</li>
+    <li>Insurance Company assigns Agent to examine case.</li>
+    <li>Agent verifies that all details are within policy guidelines.</li>
+    <li>Insurance Company pays Claimant.</li>
+  </ol>
+  <p><em>Extensions</em></p>
+    
+  <p>1a. Submitted data is incomplete:</p>
+    
+  <blockquote>
+    <p>1a1. Insurance Company requests missing information.<br/> 1a2. Claimant supplies missing information.</p>
+    
+  </blockquote>
+  <p>2a. Claimant does not own a valid policy:</p>
+    
+  <blockquote>
+    <p>2a1. Insurance Company declines claim, notifies Claimant,  records all this, and terminates proceedings.</p>
+    
+  </blockquote>
+  <p>3a. No Agents are available at this time:</p>
+    
+  <blockquote>
+    <p>3a1. (What does the Insurance Company do here?)</p>
+    
+  </blockquote>
+  <p>4a. Accident violates basic policy guidelines:</p>
+    
+  <blockquote>
+    <p>4a1. Insurance Company declines claim, notifies Claimant,  records all this, and terminates proceedings.</p>
+    
+  </blockquote>
+  <p>4b. Accident violates some minor policy guidelines :</p>
+    
+  <blockquote>
+    <p>4b1. Insurance Company begins negotiation with Claimant as to degree of payment to be made.</p>
+    
+  </blockquote>
+</blockquote><p>(Adolph)</p>
+    <a id="componentsofausecase"/><h3 id="components-of-a-use-case">4.2.2 Components of a use case</h3><p>Lots of local variations:</p>
+    <ol>
+  <li>
+  <p>Title</p>
+    </li>
+  <li>
+  <p>Overview – natural language description</p>
+    </li>
+  <li>
+  <p>Actors – list of external entities participating in the use case</p>
+    </li>
+  <li>
+  <p>Preconditions – list of conditions that must be true before this  use case can be invoked.</p>
+    </li>
+  <li>
+  <p>Scenario(s): specified as a main path and a collection of alternative paths</p>
+    </li>
+  <li>
+  <p>Postconditions – list of conditions that are expected to be true  upon completion of the use case</p>
+    </li>
+  <li>
+  <p>Exceptions – List of failure conditions associated with the  scenarios, and the appropriate system responses</p>
+    </li>
+</ol><p>Of these, #1 and #5 are essential and universal.</p>
+    <p>#4, #6, &amp; #7 are often empty</p>
+    <ul>
+  <li>Pre-conditions are generally omitted if trivial (always true)</li>
+  <li>Exceptions can often be re-written as alternative paths</li>
+  <li>Post-conditions are often omitted because he desired non-trivial  conditions may  only hold if the main path succeeeds.</li>
+</ul><hr/><p><strong>Example</strong></p>
+    <blockquote>
+  <p><strong>Attempt Assessment</strong></p>
+    
+  <p><em>Overview:</em> A candidate attempts to take an assessment. The candidate  might or might not finish the assessment within a single session.</p>
+    
+  <p><em>Actors:</em> candidate, proctor</p>
+    
+  <p><em>Preconditions:</em></p>
+    
+  <ol>
+    <li>Assessment has been created</li>
+    <li>Assessment has been provided to the proctor</li>
+  </ol>
+  <p><em>Main Path:</em></p>
+    
+  <p>1: A candidate indicates to a proctor their desire to take  an assessment. (This may involve simply showing up at a  previously-schedule time and place when the assessment is  going to be available.)</p>
+    
+  <p>2: The proctor provides the candidate with a copy of the  assessment and an empty response document.</p>
+    
+  <p>3: The proctor authorizes the start of the assessment  session.</p>
+    
+  <p>4: The candidate reads the assessment, and repeatedly  selects items from it. For each selected item, the candidate  creates a response, adding it to the response document.</p>
+    
+  <p>5: The proctor ends the assessment session after time has  expired.</p>
+    
+  <p>6: The candidate returns the response document to the  proctor.</p>
+    
+  <p>—<br/><strong>Alternatives</strong></p>
+    
+  <p><strong>Unavailable</strong></p>
+    
+  <p>2: The proctor determines that the candidate is not  eligible to take the assessment at this time (the assessment  is not available or the candidate has not fulfilled assessment  requirements such as being enrolled in the course).</p>
+    
+  <p>The use case terminates immediately.</p>
+    
+  <p><strong>Variant Assessments</strong></p>
+    
+  <p>2A: Proctor randomly selects one of multiple available  variants of the assessment.</p>
+    
+  <p>2B: The proctor gives that selected assessment and an  empty response document to the candidate.</p>
+    
+  <p><strong>In-line answers</strong></p>
+    
+  <p>2: The response document and the assessment copy are a  single document.</p>
+    
+  <p><strong>Candidate provided response document</strong> </p>
+    
+  <p>2: The candidate brings blank sheets of paper or blue books  to serve as the response document.</p>
+    
+  <p><strong>Candidate finishes early</strong></p>
+    
+  <p>5: The candidate indicates that he/she is finished prior to  the end of the allotted time. The proctor ends the assessment  session.</p>
+    
+  <p><strong>Suspended session</strong></p>
+    
+  <p>5: The candidate asks to suspend the session, with the intention of  completing the assessment at a later date. The proctor determines  from the assessment properties that this is acceptable.</p>
+    
+  <p>6: The proctor collects the candidate’s response document  and copy of the assessment.</p>
+    
+</blockquote><a id="qualityusecases"/><h3 id="quality-use-cases">4.2.3 Quality Use Cases</h3><p>Good use cases are</p>
+    <ul>
+  <li>Written in customer language</li>
+  <li>Validatable</li>
+  <li>Focused on a single goal</li>
+  <li>Express requirements, not design</li>
+</ul><hr/><p><strong>A poor use case</strong></p>
+    <blockquote>
+  <p><strong>Register for Course</strong></p>
+    
+  <ol>
+    <li>Display a blank schedule.</li>
+    <li>Display a list of all classes in the following way: The left window lists all the courses in the system in alphabetical order. The lower window displays the times the highlighted course is available. The third window shows all the courses currently in the schedule.</li>
+    <li>Do</li>
+    <li>Student clicks on a course.</li>
+    <li>Update the lower window to show the times the course is available.</li>
+    <li>Student clicks on a course time and then clicks on the “Add Course” button.</li>
+    <li>Check if the Student has the necessary prerequisites and that the  course offering is open.</li>
+    <li>If the course is open and the Student has the necessary prerequisites, add the Student to the course. Display the updated schedule showing the new course. If no, put up a message, “You are missing the prerequisites. Choose another course.”</li>
+    <li>Mark the course offering as “enrolled” in the schedule.</li>
+    <li>End do when the Student clicks on “Save Schedule.”</li>
+    <li>Save the schedule and return to the main selection screen.</li>
+  </ol>
+</blockquote><p>Problems:</p>
+    <ul>
+  <li>
+  <p>Too much user interface detail (design)</p>
+    </li>
+  <li>
+    <p>Too low level.</p>
+    
+    <ul>
+      <li>Written more from system’s perspective than from customer’s</li>
+      <li>Unclear pseudo-code-ish structure</li>
+    </ul>
+  </li>
+  <li>Poor grammar.</li>
+</ul><hr/><p><strong>Improved Version</strong></p>
+    <blockquote>
+  <p><strong>Register for Course</strong></p>
+    
+  <ol>
+    <li>Student requests a new schedule.</li>
+    <li>The system prepares a blank schedule form and pulls in a list of  open and available courses from the Course Catalog System.</li>
+    <li>Student selects primary and alternate courses from the available offerings.</li>
+    <li>For each course, the system verifies that the Student has the  necessary prerequisites and adds the Student to the course, marking  the Student as “enrolled” in that course in the schedule.</li>
+    <li>When the Student indicates the schedule is complete, the system  saves the schedule.</li>
+  </ol>
+</blockquote><a id="usecasesandrequirements"/><h3 id="use-cases-and-requirements">4.2.4 Use Cases and Requirements</h3><p>We will shortly see that common requirements documents are</p>
+    <ul>
+  <li>Reqts Definitions, and</li>
+  <li>Reqts Specifications,</li>
+</ul><p>the latter being more detailed and formal.</p>
+    <p>Use cases fall somewhere between the two, and are often used as a mechanism for gathering the additional details needed to write the specifications.</p>
+    <a id="objectorientedanalysis"/><h2 id="object-oriented-analysis">4.3 Object-Oriented Analysis</h2><p>The Object-Oriented philosophy can be summarized as:</p>
+    <blockquote>
+  <ul>
+    <li>
+    <p>Every program is really a simulation.</p>
+    </li>
+    <li>
+    <p>The quality of a program’s design is proportional to the  faithfulness with which the structures and interactions in  the program mirror those in the real world.</p>
+    </li>
+  </ul>
+</blockquote><p>In pre-OO, Waterfall and similar processes, at the end of each phase, we set aside the prior set of documentation and sit with blank sheets of paper to begin the next phase “fresh”.</p>
+    <ul>
+  <li>
+  <p>The records of elicited requirements information serve as <em>references</em> when we start writing the requirements documents.</p>
+    </li>
+  <li>
+  <p>The requirements documents serve as <em>references</em> when we start writing the design documents.</p>
+    </li>
+  <li>
+  <p>The design documents serve as <em>references</em> when we start writing the code.</p>
+    </li>
+</ul><p>But each new step is, in essence, a fresh start.</p>
+    <p>There’s a certain wisdom in this. There’s a real danger in making design decisions when writing early requirements, or in having people reading the requirements <em>think</em> that you made a design decision when choosing notations or writing explanations as part of the requirements.</p>
+    <p>A fresh start helps remind designers that they have the freedom, if not the obligation, to consider alternatives.</p>
+    <hr/><p><strong>Evolution</strong></p>
+    <p>But the OO view is very different. If we buy into the OO philosophy, then we take a more evolutionary process.</p>
+    <p>OOA is largely viewed as a model-building activity:</p>
+    <ul>
+  <li>Start with a model of how the world works now.</li>
+  <li>Make just enough changes to that model to explain what we want to  change (e.g., via new automation).</li>
+  <li>Make just enough additional changes to account for necessary design  “compromises”.</li>
+</ul><p>The result is, eventually, a design that had clear ties to the original model of the world before we started our project.</p>
+    <hr/><p><strong>Model Building</strong></p>
+    <p>The primary models of Object Oriented Analysis and Design are:</p>
+    <ul>
+  <li>
+  <p>domain model</p>
+    </li>
+  <li>
+  <p>analysis model</p>
+    </li>
+  <li>
+  <p>design model</p>
+    </li>
+</ul><a id="domainmodels"/><h3 id="domain-models">4.3.1 Domain Models</h3><p><div class="noFloat"> </div>
+    <img src="domainModel.png" style="float: right; max-width: 50%;"/></p>
+    <p>A <span class="firstterm">domain model</span> is a model of the application domain as it currently exists, <span class="emph">before</span> we began our new development project. The point of the domain model is to be sure the development team understands the world that the system will work in.</p>
+    <ul>
+  <li>
+  <p>The domain model describes the world in terms of objects interacting with one another via messages.</p>
+    </li>
+  <li>
+    <p>Not every project needs a domain model</p>
+    
+    <ul>
+      <li>
+      <p>e.g., If the team has done  several projects already in this application domain, they may  already share a common domain model.</p>
+    </li>
+    </ul>
+  </li>
+</ul><p>(Fortunately, most companies work in a small number of application domains. If they hired you last month to develop software for analyzing seismic data for petroleum engineering, they are unlikely to ask you to develop a compiler or a word processor next month.)</p>
+    <p>In that case, the team may already have a good understanding of the domain.</p>
+    <p>Even if a document describing the domain model is desired, domain models tend to be highly reusable since the world around our software systems usually changes fairly slowly.</p>
+    <hr/><p><strong>Interacting Objects</strong></p>
+    <p>All OOA models are based on the concept of objects interacting with one another by the exchange of messages (function calls).</p>
+    <p><div class="noFloat"> </div>
+    <img src="domainModel.png" style="float: right; max-width: 40%;"/></p>
+    <p>Hence, even if we are modeling a physical object or a human being, we write our models in terms of classes with an interface of <span class="firstterm">attributes</span> and <span class="firstterm">operations</span>.</p>
+    <p>E.g.,</p>
+    <table border="1"><tr><th>Transaction</th></tr><tr><td>
+date  <br/>
+number  <br/>
+relatedAccount  <br/>
+amount
+</td></tr><tr><td>
+apply(toBalance)
+</td></tr></table><table border="1"><tr><th>Checkbook</th></tr><tr><td>
+Account <br/>
+Balance
+list of Transactions <br/>
+</td></tr><tr><td>
+add(Transaction) <br/>
+cancel(Transaction)  <br/>
+balanceAgainst(Statement)
+</td></tr></table><a id="analysismodels"/><h3 id="analysis-models">4.3.2 Analysis Models</h3><p>An <span class="firstterm">analysis model</span> is a model of how the  world will interact with the software system that we envision. As such,  it is our statement of just <span class="emph">what</span> the system will do  when it is working.</p>
+    <p><div class="noFloat"> </div>
+    <img src="analysisModel1.png" style="float: right; max-width: 50%;"/></p>
+    <p>There is a real temptation to simply assume that the automated  system will simply squat in the middle of the world, interacting with  all the real world objects, sort of like this:</p>
+    <p>Or if you prefer,…</p>
+    <hr/><p><strong>It’s Magic!</strong></p>
+    <p><div class="noFloat"> </div>
+    <img src="analysisModel2.png" style="float: right; max-width: 50%;"/></p>
+    <p>Poof! We have an analysis model!</p>
+    <p>Not wrong, per se, but it’s certainly not helpful. </p>
+    <p>Such an approach is fundamentally at odds with the OO philosophy, though.</p>
+    <ul>
+  <li>
+  <p>We should look to the real world to suggest how to decompose our system.</p>
+    </li>
+  <li>
+    <p>In this case, we have not decomposed it at all – just wrapped it up into a single black box.</p>
+    
+    <ul>
+      <li>
+      <p>All the hard decisions still need to be made.</p>
+    </li>
+      <li>
+      <p>And we have thrown out any insight we gained from building our  domain model.</p>
+    </li>
+    </ul>
+  </li>
+</ul><p>In essence we have not done any analysis at all here. This “model” isn’t <span class="emph">wrong</span>, per se, but it’s certainly not helpful. We’ve basically thrown away everything we’ve learned in the domain model about how objects really interact. We’re treating the new program as a simple box, with no knowledge of its internal structure, Essentially, we’ve just deferred all the hard questions to the upcoming design.</p>
+    <hr/><p><strong>Evolving the Analysis Model</strong></p>
+    <p>What we really hope for is an <span class="emph">evolution</span> from our domain model to our analysis model. The OO philosophy tells us that the classes and interactions of our domain model …</p>
+    <p><div class="noFloat"> </div>
+    <img src="domainModel.png" style="float: left; max-width:  50%;"/></p>
+    <p>… should carry over into our analysis. </p>
+    <p>In essence, we hope to retain these classes, add more detail to our understanding of them, and to establish a boundary that tells us which of these classes and behaviors will be automated, which will remain entirely unautomated, and which will have some portion automated while other parts remain external.</p>
+    <hr/><p><strong>The Boundary</strong></p>
+    <p><div class="noFloat"> </div>
+    <img src="analysisBorders.png" style="float: right; max-width: 50%;"/></p>
+    <p>… establish a boundary that tells us which of these classes and behaviors will</p>
+    <ul>
+  <li>
+  <p>be automated</p>
+    </li>
+  <li>
+  <p>remain external</p>
+    </li>
+  <li>
+  <p>be a mixture of the two</p>
+    </li>
+</ul><p>The system, then, remains a collection of interacting objects rather than an unstructured black box.</p>
+    <ul>
+  <li>We may need to modify our class interfaces to reflect our new  understanding, but we don’t need to discard them and start from scratch.</li>
+</ul><p>There’s a definite overlap in the purpose of a requirements document and of an analysis model. Some will regard the analysis model as a kind of requirements specification. In some projects, though, a requirements document will still be required as something for customers or management to sign off on. But the analysis model is the basis from which the eventual requirements document is derived.</p>
+    <p>The evolutionary approach will carry forward, in an OO-style project, from requirements into design. When building the <em>design model</em>, we will start with the classes (and their APIs/interfaces) and make merely the changes we deem necessary for an effective design.</p>
+    <p>(OOA is covered in more detail in CS330.)</p>
+    </div><script>sshowControl0 = { counter: 1,
+             showNumber: 0, max: 1};
+             window.onhashchange = hashHasChanged;</script><div class="navFooter" id="slideshowControl0"><table class="navFooter"><tr class="slideshowcontrol"><td class="slideshowcontrolLeft"/><td class="slideshowcontrolMiddle">
+<a class="imgLink" href="../../Directory/outline/index.html" title="Course home/outline"><img src="../../graphics/home.png"/></a>
+<a href="mailto:tkennedy@cs.odu.edu?subject=CS350%2C%20Eliciting%20Requirements"><img src="../../graphics/email.png" title="Email to instructor"/></a><span style="margin: 0 32px;"/>
+<a class="imgLink" href="eliciting__slides.html"><img src="../../graphics/slides.png" title="Slides for lectures"/></a></td><td class="slideshowcontrolRight"/></tr></table></div><div class="copyright">© 2015-2018, Old Dominion Univ.</div></body></html>

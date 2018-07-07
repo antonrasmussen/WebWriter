@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?><html><head><meta charset="UTF-8"/><link href="../../styles/md-scroll.css" media="screen, projection, print" rel="stylesheet" type="text/css"/><link href="../../styles/md-scroll-ext.css" media="screen, projection, print" rel="stylesheet" type="text/css"/><meta content="width=device-width, initial-scale=1" name="viewport"/><link href="https://www.cs.odu.edu/~zeil/styles/highlight.js/styles/googlecode.css" rel="stylesheet"/><script src="https://www.cs.odu.edu/~zeil/styles/highlight.js/highlight.pack.js"> </script><script>hljs.initHighlightingOnLoad();</script><script src="../../styles/md-scroll.js" type="text/javascript"> </script><script type="text/javascript">
+             window.MathJax = {
+               tex2jax: {
+               inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+               processEscapes: true
+             }
+           };
+           </script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"> </script><title>Team Organization</title></head><body><script>sshowControl0 = { counter: 1,
+             showNumber: 0, max: 1};
+             window.onhashchange = hashHasChanged;</script><div class="navHeader" id="slideshowControlA0"><table class="navHeader"><tr class="slideshowcontrol"><td class="slideshowcontrolLeft"/><td class="slideshowcontrolMiddle">
+<a class="imgLink" href="../../Directory/outline/index.html" title="Course home/outline"><img src="../../graphics/home.png"/></a>
+<a href="mailto:tkennedy@cs.odu.edu?subject=CS350%2C%20Team%20Organization"><img src="../../graphics/email.png" title="Email to instructor"/></a><span style="margin: 0 32px;"/>
+<a class="imgLink" href="staffing__slides.html"><img src="../../graphics/slides.png" title="Slides for lectures"/></a></td><td class="slideshowcontrolRight"/></tr></table></div><div class="mainBody"><div class="titleblock"><h1 class="title">Team Organization</h1><h2 class="author">Steven J Zeil:</h2><div class="date">Last modified: Sep 14, 2017</div></div><div class="toc">Contents:<div class="toc-h1"><a href="#issues">1 Issues</a></div><div class="toc-h2"><a href="#communications">1.1 Communications</a></div><div class="toc-h1"><a href="#general-organizations">2 General Organizations</a></div><div class="toc-h2"><a href="#hierarchical-team-organization">2.1 Hierarchical Team Organization</a></div><div class="toc-h2"><a href="#matrix-organization">2.2 Matrix Organization</a></div><div class="toc-h1"><a href="#software-team-organizations">3 Software Team Organizations</a></div><div class="toc-h2"><a href="#chief-programmer-teams">3.1 Chief Programmer Teams</a></div><div class="toc-h2"><a href="#swat-teams">3.2 SWAT Teams</a></div><div class="toc-h2"><a href="#agile-teams">3.3 Agile Teams</a></div><div class="toc-h2"><a href="#distributed-teams">3.4 Distributed Teams</a></div></div><p><strong>Abstract</strong></p>
+    <p>Development teams are organized to </p>
+    <ul>
+  <li>promote communication among the team members and between th team and  interested external parties</li>
+  <li>match required skills against needs of the project</li>
+  <li>enhance overall productivity of the team</li>
+</ul><p>In this lesson, we look at some of these issues and at some common organizations that have been considered to deal with these.</p>
+    <h1 id="issues">1 Issues</h1><p>Major issues in organizing a development team are</p>
+    <ul>
+  <li>
+    <p>Communication</p>
+    
+    <ul>
+      <li>
+      <p>maximize communication within the team</p>
+    </li>
+      <li>
+      <p>establish responsive communication points with stakeholders</p>
+    </li>
+    </ul>
+  </li>
+  <li>
+    <p>Staffing </p>
+    
+    <ul>
+      <li>
+      <p>does the team contain all the skill sets reuqired to complete  the work?</p>
+    </li>
+    </ul>
+  </li>
+  <li>
+    <p>Productivity </p>
+    
+    <ul>
+      <li>
+      <p>are we making effective use of our team members’ skills?</p>
+    </li>
+    </ul>
+  </li>
+</ul><h2 id="communications">1.1 Communications</h2><p>There are two key aspects here</p>
+    <ul>
+  <li>internal communications within the team</li>
+  <li>external communications with interested parties</li>
+</ul><a id="internalcommunications"/><h3 id="internal-communications">1.1.1 Internal Communications</h3><p><em>Brook’s law</em> is well-known truism of software development:</p>
+    <blockquote>
+  <p>"Adding manpower to a late software project makes it later.  – Fred Brooks, _The Mythical Man-Month, 1975</p>
+    
+</blockquote><p>Why?</p>
+    <p>Brooks argues that</p>
+    <ul>
+  <li>Complex projects cannot be decomposed into subprojects  that can be solved independently without communication.</li>
+</ul><p>He suggests that partly, this is an attribute of the problem being solved.</p>
+    <ul>
+  <li>
+    <p>Essential versus accidental complexity</p>
+    
+    <p>He suggests that sometimes we add complexity by our choices of process or design, but that some problems are just plain complicated. As a consequence, he suggests that there is an</p>
+    
+    <ul>
+      <li>irreducible number of errors
+        <p>that we will always commit along the way, and that this is independent of the number of people we have working.</p>
+    
+      </li>
+    </ul>
+    <p>But he also argues that</p>
+    
+  </li>
+  <li>
+    <p>More personnel implies more communications paths</p>
+    
+    <ul>
+      <li>$n$ staff have \( \frac{n(n-1)}{2} \) potential communications paths.</li>
+    </ul>
+  </li>
+</ul><hr/><p><strong>Reducing Internal Communications Costs</strong></p>
+    <p>Our options are limited</p>
+    <ul>
+  <li>Keep teams small, or</li>
+  <li>Structure the teams in ways that facilitate the  most critical communications paths</li>
+</ul><a id="externalcommunications"/><h3 id="external-communications">1.1.2 External Communications</h3><p>We can divide this into</p>
+    <ul>
+  <li>communications with the development team’s own management</li>
+  <li>communications with the eventual users of the software</li>
+</ul><p>Historically, the former has been emphasized</p>
+    <ul>
+  <li><em>visibility</em> of the process is a major factor in Waterfall &amp; Spiral</li>
+</ul><p>Over time, more and more emphasis has shifted to communications with the users.</p>
+    <hr/><p><strong>Users, Customers, and Stakeholders</strong></p>
+    <p>“Users” is an incredibly vague, catch-all term that serves to hide as much as it reveals.</p>
+    <p>Avoid it when possible.</p>
+    <ul>
+  <li>
+    <p><span class="firstterm">Customers</span> are the people who have the authority to  accept or reject the system, to pay for it or not.</p>
+    
+    <p>“Pay” is not necessarily a simple monetary transaction.(e.g., internal projects)</p>
+    
+  </li>
+  <li>
+  <p><span class="firstterm">Stakeholders</span> are the people with an interest in the  structure and behavior of the system.</p>
+    </li>
+</ul><p>Example:</p>
+    <ul>
+  <li>
+  <p>A company’s upper-level management approves budget to develop a  system. They are the <em>customers</em>.</p>
+    </li>
+  <li>
+  <p>The output of the system is a series of reports used on a monthly  basis by the company’s middle and low-level managers. They are  <em>stakeholders</em>, because they have an interest in the content and  format of those reports.</p>
+    </li>
+  <li>
+  <p>Much of the input of the system will be supplied by the company’s  clerical staff, sales people, and technicians. They are also  <em>stakeholders</em>, because the system will directly impact their daily  jobs.</p>
+    </li>
+</ul><p>We look to customers for general guidelines on what will make the valuable and acceptable to them.</p>
+    <p>We look to stakeholders for much of the insight into how the system needs to work.</p>
+    <a id="generalorganizations"/><h1 id="general-organizations">2 General Organizations</h1><p>There are a few “obvious” ways to organize developers into a team.</p>
+    <p>One might be the basic democracy (or anarchy) of everyone working as peers.</p>
+    <ul>
+  <li>You probably don’t need very large teams before this gets unwieldy.</li>
+</ul><a id="hierarchicalteamorganization"/><h2 id="hierarchical-team-organization">2.1 Hierarchical Team Organization</h2><ul>
+  <li>One team per major subsystem</li>
+  <li>Teams report to managers</li>
+  <li>Managers report to one or more levels of higher managers</li>
+</ul><hr/><p><strong>Dangers of Hierarchical Teams</strong></p>
+    <ul>
+  <li>
+    <p>Distance between teams (where real work is done) and higher mgmt may  hide problems.</p>
+    
+    <p>I like van Vliet’s example:</p>
+    
+    <blockquote>
+      <p>"The following scenario is not entirely fictitious:</p>
+    
+      <ul>
+        <li>
+        <p>bottom: we have severe troubles in implementing module X;</p>
+    </li>
+        <li>
+        <p>level 1: there are some problems with module X;</p>
+    </li>
+        <li>
+        <p>level 2: progress is steady, I do not foresee any real problems;</p>
+    </li>
+        <li>
+        <p>top: everything proceeds according to our plan."</p>
+    </li>
+      </ul>
+    </blockquote>
+  </li>
+  <li>
+    <p>Level in hierarchy often equates with rank / rewards</p>
+    
+    <ul>
+      <li>Engineers either cannot rise in level or are forced to abandon  their primary skills to be managers</li>
+    </ul>
+  </li>
+</ul><a id="matrixorganization"/><h2 id="matrix-organization">2.2 Matrix Organization</h2><ul>
+  <li>Staff are assigned specialized roles based on skill sets
+    <ul>
+      <li>e.g., architects, designers, analysts, testers</li>
+      <li>Team managers address general ability of team to perform role</li>
+    </ul>
+  </li>
+  <li>Subprojects identify required role players
+    <ul>
+      <li>Teams with commonly required roles move among multiple  subprojects</li>
+      <li>Project managers oversees specific project</li>
+    </ul>
+  </li>
+</ul><table>
+  <thead>
+    <tr>
+      <th align="center"> </th>
+      <th align="center" colspan="5">Roles/Teams </th>
+    </tr>
+    <tr>
+      <th align="center">Sub-systems </th>
+      <th align="center">Coding </th>
+      <th align="center">Architecture </th>
+      <th align="center">Analysis </th>
+      <th align="center">Testing </th>
+      <th align="center">GUI </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">A </td>
+      <td align="center">Y </td>
+      <td align="center">Y </td>
+      <td align="center">Y </td>
+      <td align="center"> </td>
+      <td align="center">Y</td>
+    </tr>
+    <tr>
+      <td align="center">B </td>
+      <td align="center">Y </td>
+      <td align="center"> </td>
+      <td align="center">Y </td>
+      <td align="center">Y </td>
+      <td align="center">Y</td>
+    </tr>
+    <tr>
+      <td align="center">C </td>
+      <td align="center">Y </td>
+      <td align="center"> </td>
+      <td align="center">Y </td>
+      <td align="center">Y </td>
+    </tr>
+    <tr>
+      <td align="center">D </td>
+      <td align="center">Y </td>
+      <td align="center"> </td>
+      <td align="center"> </td>
+      <td align="center">Y </td>
+    </tr>
+  </tbody>
+</table><p>Clearly this has limited benefit if an organization is so small that they have just one architect, one tester, …</p>
+    <p>In this model, team members with critical skills can be swapped from project to project depending on where each project is within the SDPM. For example, a good architectural designer may leave projects once they enter the high-level design phase.</p>
+    <hr/><p><strong>Dangers of Matrix Organization</strong></p>
+    <ul>
+  <li>Restricted inter-role communication</li>
+  <li>Management clashes
+    <ul>
+      <li>project managers may clash with the higher managers that assign  people via the matrix.</li>
+    </ul>
+  </li>
+</ul><a id="softwareteamorganizations"/><h1 id="software-team-organizations">3 Software Team Organizations</h1><p>Anarchy, hierarchy, and matrix are all pretty generic forms.</p>
+    <p>Next we look at some specific organizations that have been attempted.</p>
+    <a id="chiefprogrammerteams"/><h2 id="chief-programmer-teams">3.1 Chief Programmer Teams</h2><p>Mills (1970)</p>
+    <ul>
+  <li>
+    <p>Motivated in part by studies showing vast differences in productivity  between different individuals within an organization</p>
+    
+    <p>Programming productivity studies have found that the “best” people in many organizations were orders of magnitude more productive than the average. (Not than the worst, but than the average.)</p>
+    
+    <p>Some of this correlates with varying degrees of experience, both in general and with the specific problem domain and development environment at hand. But some of this seems to indicate that some people just are better at this than others. </p>
+    
+  </li>
+  <li>
+  <p>Aims to allow the potentially most productive people to work  unhindered</p>
+    </li>
+</ul><hr/><p><strong>Organization of the Chief Programmer Team</strong></p>
+    <ul>
+  <li><span class="firstterm">Chief programmer</span> is team leader
+    <ul>
+      <li>responsible for design and critical parts of the implementation</li>
+    </ul>
+  </li>
+  <li><span class="firstterm">Assistant programmer</span> assists chief and does rest of the  implementation</li>
+  <li><span class="firstterm">Librarian</span> handles documentation, deployment, code management, etc.</li>
+  <li>A few specialists can augment the team</li>
+</ul><hr/><p><strong>Observations</strong></p>
+    <ul>
+  <li>A very coding-centric view</li>
+  <li>High stress on chief</li>
+  <li>Low level of satisfaction for remainder of team</li>
+  <li>Does not scale well to large projects.</li>
+</ul><a id="swatteams"/><h2 id="swat-teams">3.2 SWAT Teams</h2><p><span class="firstterm">SWAT</span> <code>==</code> Skilled With Advanced Tools</p>
+    <p>A team organization for iterative process models</p>
+    <ul>
+  <li>Small team, sharing a common workspace</li>
+  <li>Heavy tool support</li>
+  <li>Team leader is “first among equals”</li>
+</ul><a id="agileteams"/><h2 id="agile-teams">3.3 Agile Teams</h2><ul>
+  <li>
+  <p>Small teams, often sharing a workspace</p>
+    </li>
+  <li>
+  <p>Typically, one team manager</p>
+    </li>
+  <li>Often includes customers/stakeholders or their designated  representative as a team member.</li>
+  <li>Team sets their own best practices
+    <ul>
+      <li>selects tools</li>
+    </ul>
+  </li>
+  <li>Emphasis on self-management, self-motivation
+    <ul>
+      <li>Professional pride</li>
+    </ul>
+  </li>
+</ul><a id="distributedteams"/><h2 id="distributed-teams">3.4 Distributed Teams</h2><p>Common in open-source development</p>
+    <ul>
+  <li>Small core team responsible for project “vision”</li>
+  <li>Associated developers submit patches, changes, etc.
+    <ul>
+      <li>Must be approved by core team to be merged into official project</li>
+      <li>A <span class="firstterm">pull request</span> is a request for others to check out a proposed change.</li>
+    </ul>
+  </li>
+  <li>Users submit bug reports and feature requests
+    <ul>
+      <li>May be prioritized by core team.</li>
+      <li>But an associated developer is not prohibited from working on  a low-priority request.</li>
+    </ul>
+  </li>
+</ul><p>Total team can be huge and diverse.</p>
+    <hr/><p><strong>Closing Thoughts</strong></p>
+    <ul>
+  <li>
+    <p>If you were formed into groups, this week, to work on a project, how  would you organize yourselves?</p>
+    
+    <ul>
+      <li>Would it match any of the organizations shown here?</li>
+    </ul>
+  </li>
+  <li>
+  <p>Does it make a difference to your answer whether this is a distance  course?</p>
+    </li>
+</ul></div><script>sshowControl0 = { counter: 1,
+             showNumber: 0, max: 1};
+             window.onhashchange = hashHasChanged;</script><div class="navFooter" id="slideshowControl0"><table class="navFooter"><tr class="slideshowcontrol"><td class="slideshowcontrolLeft"/><td class="slideshowcontrolMiddle">
+<a class="imgLink" href="../../Directory/outline/index.html" title="Course home/outline"><img src="../../graphics/home.png"/></a>
+<a href="mailto:tkennedy@cs.odu.edu?subject=CS350%2C%20Team%20Organization"><img src="../../graphics/email.png" title="Email to instructor"/></a><span style="margin: 0 32px;"/>
+<a class="imgLink" href="staffing__slides.html"><img src="../../graphics/slides.png" title="Slides for lectures"/></a></td><td class="slideshowcontrolRight"/></tr></table></div><div class="copyright">© 2015-2018, Old Dominion Univ.</div></body></html>
